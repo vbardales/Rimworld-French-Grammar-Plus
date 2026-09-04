@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <FGP.RichText>Elision across colour tags</FGP.RichText>
+  <FGP.RichText.Tip>The engine's own elision rules stop at a markup tag. This applies them across it.</FGP.RichText.Tip>
+
+  <FGP.AspiratedH>Aspirated h</FGP.AspiratedH>
+  <FGP.AspiratedH.Tip>Words with an aspirated h keep their article. Word list in Data/aspirated-h.txt.</FGP.AspiratedH.Tip>
+
+  <FGP.Possessive>Possessive before a vowel</FGP.Possessive>
+  <FGP.Possessive.Tip>"sa epee" becomes "son epee". The engine does not do this at all.</FGP.Possessive.Tip>
+
+  <FGP.KindGender>Grammatical gender of species</FGP.KindGender>
+  <FGP.KindGender.Tip>A species noun keeps its own gender whatever the sex of the animal. Word list in Data/pawnkind-gender.txt.</FGP.KindGender.Tip>
+
+  <FGP.Typography>Non-breaking spaces</FGP.Typography>
+  <FGP.Typography.Tip>Before : ; ! and ?. Off by default because not every font has the narrow no-break space.</FGP.Typography.Tip>
+
+  <FGP.Verbose>Verbose log</FGP.Verbose>
+  <FGP.Verbose.Tip>Logs what was patched and every gender override. For bug reports.</FGP.Verbose.Tip>
+
+  <FGP.DataFiles>Both word lists are plain text files in the mod's Data folder. Edit without recompiling; restart the game to reload.</FGP.DataFiles>
+</LanguageData>

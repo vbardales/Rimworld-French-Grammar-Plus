@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>French Grammar Plus</name>
+  <author>nelim</author>
+  <packageId>nelim.frenchgrammarplus</packageId>
+  <url>https://github.com/vbardales/Rimworld-French-Grammar-Plus</url>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <description>Finishes the French grammar the game already does most of.
+
+RimWorld 1.6 handles elision, contraction and plurals natively: le + voyelle becomes l', de le becomes du, a les becomes aux. This mod only covers what the engine still gets wrong.
+
+RICH TEXT
+
+The engine's elision rules stop at a markup tag. "de &lt;color=#D09B61FF&gt;Eclat&lt;/color&gt;" stays "de Eclat" instead of "d'Eclat". The same rules are applied again here, this time reaching across the tag. Mods that colour their labels are the main beneficiaries.
+
+ASPIRATED H
+
+The engine treats every h as elidable, so it writes "l'haricot" and "d'hache". A word list marks the aspirated ones and they keep their article.
+
+POSSESSIVES
+
+"sa epee" becomes "son epee", as French requires before a vowel. The engine does not do this at all.
+
+GRAMMATICAL GENDER OF SPECIES
+
+A species noun has a gender of its own, unrelated to the sex of the animal wearing it: "la megaspider" is feminine even when the pawn is male. A word list gives each pawn kind its gender and the generated text follows it.
+
+TYPOGRAPHY, OPTIONAL AND OFF BY DEFAULT
+
+Non-breaking spaces before : ; ! and ?. Left off because it depends on the font having those characters.
+
+Both word lists are plain text files in the mod's Data folder. Edit them without recompiling, and send additions upstream.
+
+CREDITS
+
+The elision and plural rules that are now vanilla were written by Adirelle and b606 for the LanguageWorker_French mod and later adopted by Ludeon. This mod deliberately does not reimplement them. Its aspirated-h word list was rebuilt from standard French rather than copied.
+
+No save data. Can be added to or removed from an ongoing game.</description>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>Ludeon.RimWorld</li>
+  </loadAfter>
+</ModMetaData>

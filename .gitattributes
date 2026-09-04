@@ -1,0 +1,9 @@
+# Normalise line endings in the repository, while each machine keeps its own.
+#
+# This file belongs to the published mod repository. The monorepo has its own copy: `git subtree
+# split` exports this folder alone, so the two are not redundant.
+
+* text=auto
+
+*.png binary
+*.dll binary

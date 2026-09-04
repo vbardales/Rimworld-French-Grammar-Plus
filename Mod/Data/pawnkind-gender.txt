@@ -1,0 +1,20 @@
+# Grammatical gender of the species noun, independent of the pawn's sex.
+#
+# Format: <PawnKindDef defName>=f|m
+# The defName is the game's own, in English, even where the label is translated.
+#
+# Without an entry here the game uses the pawn's sex as the noun's gender, which produces
+# "le megaspider" for a male. With one, the generated article and possessive follow the noun.
+#
+# This is a seed. RimWorld 1.6 and its DLCs ship about 124 animal pawn kinds; every one whose
+# French noun disagrees with the animal's sex belongs here.
+
+Boomalope=f
+Gazelle=f
+Megaspider=f
+Ostrich=f
+Tortoise=f
+
+Alphabeaver=m
+Bear_Grizzly=m
+Boomrat=m

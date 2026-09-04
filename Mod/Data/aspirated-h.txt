@@ -1,0 +1,97 @@
+# Words with an aspirated h: they take NO elision (le haricot, not l'haricot).
+#
+# One entry per line, lowercase. Matching is by prefix, so "haut" also covers "haute",
+# "hauteur" and "hautement". Prefer whole words: a short prefix over-matches, and "hero"
+# would wrongly catch "heroine", which takes a mute h.
+# Blank lines and lines starting with # are ignored.
+#
+# Do NOT list words with a mute h -- they elide normally and belong nowhere near this file:
+# homme, heure, histoire, hopital, herbe, hiver, huile, honneur, heroine, hebergement.
+#
+# This list is drawn from standard French, not from any single game's vocabulary, so that
+# words introduced by a DLC or by another mod are covered before anyone reports them.
+
+# Core French
+hache
+haie
+haillon
+haine
+hair
+hall
+halle
+halte
+hamac
+hameau
+hampe
+hanche
+handicap
+hangar
+hanneton
+hanter
+happer
+harceler
+hardi
+hareng
+hargne
+haricot
+harnais
+harpe
+harpon
+hasard
+hase
+hate
+hausse
+haut
+havre
+hennir
+herisson
+hernie
+heron
+heros
+herse
+hetre
+heurt
+hibou
+hideux
+hierarchie
+hocher
+hollandais
+homard
+hongrois
+honte
+hoquet
+horde
+hors
+hotte
+houblon
+houle
+housse
+hublot
+hurl
+hutte
+hyene
+
+# Accented forms of the above, listed separately because matching is literal.
+hâte
+hâtif
+hérisson
+héron
+héros
+hêtre
+hiérarchie
+hyène
+
+# English and other loanwords that keep the aspirated behaviour in French.
+hack
+hall
+hamburger
+hamster
+hobby
+hockey
+holding
+hub
+hunter
+husky
+
+# "onze" and "onzieme" are not h words but follow the same no-elision rule.
+onz

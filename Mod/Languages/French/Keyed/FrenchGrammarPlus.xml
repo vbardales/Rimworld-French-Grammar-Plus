@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <FGP.RichText>Élision à travers les balises de couleur</FGP.RichText>
+  <FGP.RichText.Tip>« de &lt;color&gt;Éclat&lt;/color&gt; » devient « d'&lt;color&gt;Éclat&lt;/color&gt; ». Le jeu applique déjà ces règles, mais s'arrête devant une balise.</FGP.RichText.Tip>
+
+  <FGP.AspiratedH>H aspiré</FGP.AspiratedH>
+  <FGP.AspiratedH.Tip>« le haricot » au lieu de « l'haricot ». La liste des mots est dans Data/aspirated-h.txt.</FGP.AspiratedH.Tip>
+
+  <FGP.Possessive>Possessif devant voyelle</FGP.Possessive>
+  <FGP.Possessive.Tip>« son épée » au lieu de « sa épée ».</FGP.Possessive.Tip>
+
+  <FGP.KindGender>Genre grammatical des espèces</FGP.KindGender>
+  <FGP.KindGender.Tip>Le genre du nom d'espèce ne suit pas le sexe de l'animal : « la mégaraignée » reste féminin pour un mâle. La liste est dans Data/pawnkind-gender.txt.</FGP.KindGender.Tip>
+
+  <FGP.Typography>Espaces insécables</FGP.Typography>
+  <FGP.Typography.Tip>Avant : ; ! et ?. Désactivé par défaut : la police du jeu n'a pas toujours l'espace fine insécable, qui apparaît alors comme un carré vide.</FGP.Typography.Tip>
+
+  <FGP.Verbose>Journal détaillé</FGP.Verbose>
+  <FGP.Verbose.Tip>Écrit dans le journal ce qui a été patché et chaque genre forcé. Pour signaler un bug.</FGP.Verbose.Tip>
+
+  <FGP.DataFiles>Les deux listes de mots sont des fichiers texte dans le dossier Data du mod. Modifiables sans recompiler ; relancer le jeu pour les recharger.</FGP.DataFiles>
+</LanguageData>

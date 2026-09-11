@@ -6,15 +6,138 @@
 # Without an entry here the game uses the pawn's sex as the noun's gender, which produces
 # "le megaspider" for a male. With one, the generated article and possessive follow the noun.
 #
-# This is a seed. RimWorld 1.6 and its DLCs ship about 124 animal pawn kinds; every one whose
-# French noun disagrees with the animal's sex belongs here.
+# Every animal PawnKindDef shipped by RimWorld 1.6 and its expansions is listed: 115 entries,
+# 25 feminine and 90 masculine. The gender is that of the French noun the official translation
+# actually uses, read from Ludeon/RimWorld-fr rather than guessed from the English name - the
+# choice of word decides the gender, and several are not the obvious cognate ("elk" is "wapiti",
+# "megasloth" is "megatherium", "wolverine" is "glouton").
+#
+# Modded animals are not here and cannot be: add their defName to this file, no recompiling.
+
+# ---------------------------------------------------------------------------
+# Feminine
+#
+# The two invented "-alope" names follow "antilope" and are feminine, which is how the
+# translation of the original LanguageWorker_French mod treated them.
+# ---------------------------------------------------------------------------
 
 Boomalope=f
+Cow=f
+Dryad_Barkskin=f
+Dryad_Basic=f
+Dryad_Berrymaker=f
+Dryad_Carrier=f
+Dryad_Clawer=f
+Dryad_Gaumaker=f
+Dryad_Medicinemaker=f
+Dryad_Woodmaker=f
 Gazelle=f
+Goat=f
+Goose=f
+HiveQueen=f
+Larva=f
+Locust=f
 Megaspider=f
 Ostrich=f
+Otter=f
+Panther=f
+Quail=f
+SeaTurtle=f
 Tortoise=f
+Toxalope=f
+Turkey=f
 
+# ---------------------------------------------------------------------------
+# Masculine
+# ---------------------------------------------------------------------------
+
+Alligator=m
+Alpaca=m
 Alphabeaver=m
+AlphaThrumbo=m
+Armadillo=m
+Badger=m
 Bear_Grizzly=m
+Bear_Polar=m
+Bison=m
+Bluebird=m
+BogHound=m
 Boomrat=m
+Bullfrog=m
+Capybara=m
+Caribou=m
+Cassowary=m
+Cat=m
+Cat_Scimitar=m
+Chicken=m
+Chinchilla=m
+Cobra=m
+ColossusToad=m
+Cougar=m
+Crow=m
+Deer=m
+Donkey=m
+Dromedary=m
+Duck=m
+Elephant=m
+Elk=m
+Emu=m
+Flamingo=m
+Fox_Arctic=m
+Fox_Fennec=m
+Fox_Red=m
+Gorilla=m
+GuineaPig=m
+Hare=m
+HermitCrab=m
+Heron=m
+Hippo=m
+Horse=m
+Husky=m
+Ibex=m
+Iguana=m
+LabradorRetriever=m
+LavaSnail=m
+Lynx=m
+Macaw=m
+Mastodon=m
+Megascarab=m
+Megasloth=m
+Megavole=m
+Mink=m
+MonitorLizard=m
+Monkey=m
+Moose=m
+Muffalo=m
+Muskox=m
+Panda=m
+Peacock=m
+Penguin=m
+Pig=m
+Porcupine=m
+PrairieDog=m
+Raccoon=m
+Rat=m
+Rhinoceros=m
+Seal=m
+SeaLion=m
+Sheep=m
+Snowhare=m
+Sparrow=m
+Spelopede=m
+Squirrel=m
+StoneCrab=m
+Swan=m
+Thrumbo=m
+Tiger=m
+Vulture=m
+Walrus=m
+Warg=m
+WasteRat=m
+WildBoar=m
+Wolf_Arctic=m
+Wolf_Great=m
+Wolf_Timber=m
+Wolverine=m
+Yak=m
+YorkshireTerrier=m

@@ -1,7 +1,8 @@
 # Normalise line endings in the repository, while each machine keeps its own.
 #
-# This file belongs to the published mod repository. The monorepo has its own copy: `git subtree
-# split` exports this folder alone, so the two are not redundant.
+# This repository is the mod's only one. It was published by `git subtree push` from a monorepo
+# until 2026-09-12, which is why this file used to explain that the monorepo kept a copy of it;
+# the mod has its own repository now, and nothing exports this folder from anywhere else.
 
 * text=auto
 

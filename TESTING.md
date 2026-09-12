@@ -1,11 +1,19 @@
 # French Grammar Plus — in-game test scenarios
 
-Nothing in this mod has ever been watched to run. Every claim in the README was established by
-reading `Assembly-CSharp.dll` and the old mod's source, which proves what the engine does, not what
-this mod does to it. This file is the list of what has to be seen in a running colony, and what
-counts as a pass.
+Nothing in this mod has ever been watched to run in a colony. This file is the list of what has to
+be seen there, and what counts as a pass.
 
-It is not shipped: it lives beside `Mod/`, never inside it, so Steam never receives it.
+A test suite runs beside it, `_tools/Run-Tests.ps1`, and it is not a substitute. What it does cover
+is more than a static check: the game's own `LanguageWorker_French` loads outside RimWorld, so the
+suite runs each correction sandwiched around the real vanilla rules, exactly as Harmony arranges
+them in game. Every grammar rule in this mod is therefore already known to produce the right string.
+
+What the suite cannot do is load the mod into the game. Harmony never runs there, no pawn exists,
+no window is drawn, and no translation is resolved through the engine's own call chain. A patch
+target that resolves in the suite can still fail to patch in game, and a rule that is right on a
+test string can still never be reached by the text on screen. That is what these scenarios are for.
+
+Neither file is shipped: both live beside `Mod/`, never inside it, so Steam never receives them.
 
 ## Before starting
 
@@ -28,7 +36,7 @@ Read out of the game's own files on 2026-09-12, not copied from the mod's prose.
 
 | Claim | Where it was checked | Value |
 |---|---|---|
-| Aspirated-h prefixes | `Mod/Data/aspirated-h.txt` | 77 |
+| Aspirated-h prefixes | `Mod/Data/aspirated-h.txt` | 76 |
 | Species genders | `Mod/Data/pawnkind-gender.txt` | 115: 25 feminine, 90 masculine |
 | Animal pawn kinds the game ships | `Data/*/Defs/ThingDefs_Races/Races_Animal*.xml` | 115 |
 | Listed kinds missing from the game | set difference, both directions | 0 |
@@ -69,7 +77,7 @@ than the two above.
 
 1. Same launch, same log.
 
-**Pass:** one line reading `77 aspirated-h words, 115 species genders loaded.`
+**Pass:** one line reading `76 aspirated-h words, 115 species genders loaded.`
 
 Any other pair of numbers means a file was edited, or was read in the wrong encoding.
 
@@ -127,7 +135,7 @@ getting right, everywhere, silently. This is the negative test.
 **Pass:** "l'herbe médicinale", "l'humain", "l'hyperfibre" — elision as before, exactly as without
 the mod.
 
-**Fail:** "la herbe médicinale", "le humain". One of the 77 prefixes is catching a mute-h word.
+**Fail:** "la herbe médicinale", "le humain". One of the 76 prefixes is catching a mute-h word.
 
 The list was checked against the ten commonest mute-h words and against every French item label the
 game ships that begins with `h`, and none collide. This scenario is here because that check cannot
@@ -242,7 +250,7 @@ read on each call, so all five switches behave this way.
 
 3. Restart and look again.
 
-**Pass:** now "d'hache de brèche", and the verbose line reads 76 rather than 77. Put the word back.
+**Pass:** now "d'hache de brèche", and the verbose line reads 75 rather than 76. Put the word back.
 
 This pair is what the settings screen promises in so many words: *edit without recompiling; restart
 the game to reload*.
@@ -280,7 +288,7 @@ The description promises no save data and free removal.
 - **That every one of the 115 genders is the right one.** The scenarios above check the machinery
   on perhaps a dozen species. The other hundred are a reading of the official translation, and
   only a French speaker looking at generated text over a long game will find a wrong one.
-- **That the 77 prefixes are complete.** Scenario 5 catches over-matching, which is the dangerous
+- **That the 76 prefixes are complete.** Scenario 5 catches over-matching, which is the dangerous
   direction. Under-matching — a missing aspirated word — shows up as vanilla behaviour and looks
   like nothing at all.
 - **That a future version still resolves.** Scenario 1 is the whole of that check, and it has to be

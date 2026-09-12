@@ -70,6 +70,16 @@ anything to act on.
 
 Output goes to `Mod/Assemblies/`. `Mod/` is the folder to drop in RimWorld's `Mods/`.
 
+## Tests
+
+    powershell -NoProfile -File _tools/Run-Tests.ps1
+
+Twenty-six tests, a couple of seconds, and RimWorld is never started. The game's own
+`LanguageWorker_French` loads outside it, so the grammar tests run each correction sandwiched
+around the real vanilla rules rather than around a description of them: every case asserts both
+that vanilla alone still produces the fault and that this mod's output is right. The word lists are
+checked against the animal defs the game actually ships, in both directions.
+
 ## Credits
 
 Adirelle and b606, for the rules Ludeon adopted and for the zero-width guard this mod still uses.

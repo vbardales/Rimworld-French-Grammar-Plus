@@ -4,7 +4,7 @@ packageId:    nelim.frenchgrammarplus
 repo:         Rimworld-French-Grammar-Plus
 visibility:   public
 detached:     yes
-stage:        preTest
+stage:        done
 licence:      silent
 licence_at:   b606's repository carries no LICENSE, only an AssemblyCopyright, and it has been dead since November 2020. No file, no line and no word list of his is copied. One idea is his and is credited in ATTRIBUTION.md: the zero-width guard that keeps the vanilla elision rules off an aspirated word. This mod's own LICENSE is a bare MIT.
 dependencies: declared
@@ -19,11 +19,10 @@ remaining:
     the first: until the log shows all three patches took, the other twelve prove nothing.
   - unverified: scenario 9, elision across a colour tag, cannot be run with the base game alone -
     no vanilla French string carries a rich text tag, so it needs a mod that colours its labels.
-  - feature: no out-of-game harness. The eight checks run on 2026-09-11 live in no committed file,
-    and the two word lists are verified against the game's defs by hand rather than by a test.
+
   - unverified: never uploaded to the Workshop, so the showcase has never been seen in place.
 session:      local_f7c8f179-b0fc-432a-bd6f-23aa8e0fddd0
-updated:      2026-09-12, test scenarios written
+updated:      2026-09-12, test suite written, 26 passing
 ---
 
 # French Grammar Plus — status
@@ -34,18 +33,17 @@ no longer swept: the mod's own session holds it and keeps it current.
 
 ## What the sweep could not read, and what the answers are
 
-- **`stage`** — `preTest`. The code is finished and the paperwork is complete, but nothing is
-  written to test against: no scenario document, no out-of-game harness. That is what separates
-  `preTest` from `done` elsewhere in the repository. Crystal Ball and Burn Barrel are `done` with
-  their scenarios written and unplayed; For the Occasion is `preTest` for the same reason as this
-  mod.
+- **`stage`** — `done`. It was `preTest` while nothing was written to test against. Both halves
+  now exist: `TESTING.md`, thirteen scenarios, and `_tools/Run-Tests.ps1`, twenty-six tests that
+  pass. `done` means the work is finished, not that the mod is played or published, which is what
+  the two fields below are for. Crystal Ball and Burn Barrel sit here on the same footing.
 - **`tested_on`** — empty. The mod has never been run.
 - **`dependencies`** — `declared`. Harmony is the only one, named in `modDependencies`, and it is
   referenced for compilation alone with `ExcludeAssets=runtime`, so no copy ships. The two
   `loadAfter` entries are Harmony again and vanilla, so neither hides an undeclared dependency.
 - **`remaining`** — above. The icon is the only defect; the rest is what has not been seen. The
-  scenario document the sweep found missing now exists as `TESTING.md`, so what is left is playing
-  it, and an out-of-game harness the mod has never had.
+  scenario document the sweep found missing now exists, and so does the test suite. What is left is
+  playing the scenarios, and one icon to redraw.
 
 ## Two fields the sweep filled in wrong
 

@@ -15,13 +15,15 @@ remaining:
   - defect: the ModIcon is off style. The mascot is right, but she carries readable text -
     "Plus" in a speech bubble, "Grammaire" on the book - and a tricolour flag. The test is at
     32 px, where all three become a smear instead of a landmark. To regenerate.
-  - feature: no scenario document, so there is nothing written to play through. The eight
-    out-of-game checks that were run on 2026-09-11 live in no committed file.
-  - unverified: never seen running. Every claim in the README was read off the 1.6 assembly and
-    off the old mod's source, and the five corrections have never been watched to fire.
+  - unverified: never seen running. The thirteen scenarios of TESTING.md, none played. Start with
+    the first: until the log shows all three patches took, the other twelve prove nothing.
+  - unverified: scenario 9, elision across a colour tag, cannot be run with the base game alone -
+    no vanilla French string carries a rich text tag, so it needs a mod that colours its labels.
+  - feature: no out-of-game harness. The eight checks run on 2026-09-11 live in no committed file,
+    and the two word lists are verified against the game's defs by hand rather than by a test.
   - unverified: never uploaded to the Workshop, so the showcase has never been seen in place.
 session:      local_f7c8f179-b0fc-432a-bd6f-23aa8e0fddd0
-updated:      2026-09-12, held by the mod's own session from here on
+updated:      2026-09-12, test scenarios written
 ---
 
 # French Grammar Plus — status
@@ -41,7 +43,9 @@ no longer swept: the mod's own session holds it and keeps it current.
 - **`dependencies`** — `declared`. Harmony is the only one, named in `modDependencies`, and it is
   referenced for compilation alone with `ExcludeAssets=runtime`, so no copy ships. The two
   `loadAfter` entries are Harmony again and vanilla, so neither hides an undeclared dependency.
-- **`remaining`** — above. The icon is the only defect; the rest is what has not been seen.
+- **`remaining`** — above. The icon is the only defect; the rest is what has not been seen. The
+  scenario document the sweep found missing now exists as `TESTING.md`, so what is left is playing
+  it, and an out-of-game harness the mod has never had.
 
 ## Two fields the sweep filled in wrong
 

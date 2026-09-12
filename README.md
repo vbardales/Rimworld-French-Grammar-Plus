@@ -56,8 +56,13 @@ never breaks the game.
 ## Not yet verified in game
 
 Everything above is read off the 1.6 assembly and off the old mod's source. None of it has been
-run yet. Before publishing, check in-game that each of the five corrections fires, with
-**Verbose log** on.
+run yet. `TESTING.md` is the list of what has to be watched in a running colony and what counts as
+a pass: thirteen scenarios, starting with the log line that says all three patches took, and with
+**Verbose log** on throughout the first pass.
+
+One of them cannot be run with the base game alone. No vanilla French string carries a rich text
+tag, so the elision-across-tags correction needs a mod that colours its labels before it has
+anything to act on.
 
 ## Build
 

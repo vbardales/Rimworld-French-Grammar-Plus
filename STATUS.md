@@ -20,7 +20,7 @@ remaining:
   - unverified: never seen running. Every claim in the README was read off the 1.6 assembly and
     off the old mod's source, and the five corrections have never been watched to fire.
   - unverified: never uploaded to the Workshop, so the showcase has never been seen in place.
-session:      local_65c88da3-ee17-4248-a60d-41cd1515566d
+session:      local_f7c8f179-b0fc-432a-bd6f-23aa8e0fddd0
 updated:      2026-09-12, held by the mod's own session from here on
 ---
 

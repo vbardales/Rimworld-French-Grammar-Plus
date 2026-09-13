@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>French Grammar Plus</name>
+  <name>French Grammar Plus (unofficial)</name>
   <author>nelim</author>
   <packageId>nelim.frenchgrammarplus</packageId>
   <url>https://github.com/vbardales/Rimworld-French-Grammar-Plus</url>
   <supportedVersions>
     <li>1.6</li>
   </supportedVersions>
-  <description>Finishes the French grammar the game already does most of.
+  <description>UNOFFICIAL. This mod is published without the original author's explicit consent. If the original author contacts me to request its removal, I undertake to take it down promptly.
+
+Finishes the French grammar the game already does most of.
 
 RimWorld 1.6 handles elision, contraction and plurals natively: le + voyelle becomes l', de le becomes du, a les becomes aux. This mod only covers what the engine still gets wrong.
 
@@ -37,7 +39,9 @@ CREDITS
 
 The elision and plural rules that are now vanilla were written by Adirelle and b606 for the LanguageWorker_French mod and later adopted by Ludeon. This mod deliberately does not reimplement them. Its aspirated-h word list was rebuilt from standard French rather than copied.
 
-No save data. Can be added to or removed from an ongoing game.</description>
+No save data. Can be added to or removed from an ongoing game.
+
+[url=https://github.com/vbardales/Rimworld-French-Grammar-Plus]Source code on GitHub[/url]</description>
   <modDependencies>
     <li>
       <packageId>brrainz.harmony</packageId>

@@ -1,0 +1,50 @@
+French Grammar Plus - test suite
+  mod       C:\Users\nelim\Documents\rimworld\FrenchGrammarPlus
+  game data C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Data
+
+The grammar, run against the game's own French rules
+  ok    the aspirated h keeps its article, where vanilla elides it
+  ok    a mute h still elides, exactly as without the mod
+  ok    the possessive takes son before a vowel, and leaves an aspirated h alone
+  ok    elision reaches across a rich text tag, where vanilla stops at it
+  ok    the guard never survives into the output
+  ok    typography is off by default, and spaces only what ends a clause
+  ok    each switch turns off its own correction and no other
+  ok    the definite article is rebuilt for an aspirated h, and only for one
+
+The patch targets, and the names Harmony matches by
+  ok    PostProcessed is declared on the French worker itself, with a parameter named str
+  ok    WithDefiniteArticle is declared there too, with a parameter named gender
+  ok    exactly one RulesForPawn takes a PawnKindDef, and names pawnSymbol and kind
+  ok    the mod's patch methods use the argument names Harmony needs
+
+The word lists, against the defs the game ships
+  ok    aspirated-h.txt is lowercase, unique and non-empty
+  ok    no aspirated prefix catches a word with a mute h
+  ok    pawnkind-gender.txt parses, every line, with no duplicate
+  ok    every listed species is a pawn kind the game actually ships
+  ok    every animal the game ships has a gender
+  ok    the file's header counts match the file
+
+Translations
+  ok    every key the C# asks for exists in English
+  ok    French matches English key for key
+  ok    no key is shipped that nothing asks for
+
+What ships, and what sits beside it
+  ok    the About's packageId is the one the C# hard-codes
+  ok    the folder Steam receives carries nothing but the mod
+  ok    the C# sources are pure ASCII
+  ok    the status sheet's field names are the English ones
+  ok    the status sheet has a closed front matter with its session and date
+
+Settings, language isolation and shortcut contract
+  ok    fresh settings and missing stored values use the documented defaults
+  ok    all 64 checkbox combinations survive real Scribe save and reload
+  ok    species gender switches on and off, preserves input and ignores other languages
+  ok    shortcut is hidden by default and uses the native settings worker contract
+  ok    all shipped XML parses and shortcut translations resolve to translatable fields
+  ok    Keyed resources have no duplicates, empty values or mismatched parameters
+  ok    description ends with the source link matching About.url
+
+33 tests, all passing.

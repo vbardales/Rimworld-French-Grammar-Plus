@@ -12,6 +12,19 @@ First version. RimWorld 1.6, Harmony required. **Not yet tested in game.**
 
 ### Added
 
+- A hidden-by-default MainButton shortcut to the native mod settings dialog, with English
+  and French labels; no customization mod is required to access the settings.
+- A translated settings title and an explanation of scope and application timing.
+- Settings serialization, language-isolation, logging and shortcut regression tests.
+- An updated Workshop overlay with suffix hierarchy, unofficial tag and version badge.
+
+### Fixed
+
+- Restricted the global species-rule patch to the active French language worker.
+- Added the final source-code link to the distributed About description.
+
+### Initial features
+
 - Elision across rich text tags. The vanilla French rules stop at a markup tag, leaving
   `de <color=#D09B61FF>Éclat</color>` as "de Éclat"; the same four rules are applied again here,
   this time reaching across the tag, for `de`/`la` elision and for the `du`/`des`/`au`/`aux`

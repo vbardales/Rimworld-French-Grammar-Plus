@@ -3,7 +3,8 @@
   The mod's own test suite. Runs without RimWorld, in a couple of seconds.
 
 .DESCRIPTION
-  Five groups, twenty-six tests:
+  The original five groups contain twenty-six tests. Settings-Tests.ps1 adds seven regressions:
+  native Scribe persistence, defaults, language isolation/logging, shortcut contract and XML/l10n.
 
     The grammar        every correction run against the game's own French rules
     The patch targets  the three methods the mod hangs off, and the parameter names Harmony
@@ -39,7 +40,7 @@
   a target that resolves here can still fail to patch in game. The functional pass is TESTING.md,
   played in a colony, and its evidence is Player.log.
 
-  EVERY TEST HERE HAS BEEN SEEN TO FAIL, against a deliberately broken copy in a scratch
+  THE ORIGINAL 26 TESTS HAVE BEEN SEEN TO FAIL, against a deliberately broken copy in a scratch
   directory, never against the real files. Sixteen mutations, each having to wake its own test:
 
     "hache" removed from aspirated-h.txt        -> the shield test, and three others that use
@@ -699,6 +700,8 @@ It 'the status sheet has a closed front matter with its session and date' {
 }
 
 # =============================================================================================
+
+. (Join-Path $PSScriptRoot 'Settings-Tests.ps1')
 
 Write-Output ''
 if ($script:failed -eq 0) {

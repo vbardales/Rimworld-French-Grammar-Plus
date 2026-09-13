@@ -1,4 +1,6 @@
-# French Grammar Plus
+# French Grammar Plus (unofficial)
+
+UNOFFICIAL. This mod is published without the original author's explicit consent. If the original author contacts me to request its removal, I undertake to take it down promptly.
 
 A RimWorld 1.6 mod that finishes the French grammar the engine already does most of.
 
@@ -34,8 +36,8 @@ feminine word lists that `LanguageDatabase.ResolveGender` reads from `Strings/`.
 ## Design notes
 
 - **No language worker substitution.** The old mod replaced `LoadedLanguage.info.languageWorkerClass`
-  wholesale, which fights any other language mod. Here every patch hangs off
-  `LanguageWorker_French` itself, so it is inert in any other language and needs no guard.
+  wholesale, which fights any other language mod. Elision patches target `LanguageWorker_French`;
+  the global pawn-rule patch checks the active worker and leaves other languages untouched.
 - **No `StackTrace`.** The old mod called `new StackTrace()` inside `ToTitleCase` and read
   `GetFrame(3/4/5)` to guess its caller. That is expensive on a method the game calls constantly,
   and silently wrong the first time the JIT inlines differently. That whole feature is dropped.
@@ -57,7 +59,7 @@ never breaks the game.
 
 Everything above is read off the 1.6 assembly and off the old mod's source. None of it has been
 run yet. `TESTING.md` is the list of what has to be watched in a running colony and what counts as
-a pass: thirteen scenarios, starting with the log line that says all three patches took, and with
+a pass: fourteen scenarios, starting with the log line that says all three patches took, and with
 **Verbose log** on throughout the first pass.
 
 One of them cannot be run with the base game alone. No vanilla French string carries a rich text
@@ -70,15 +72,34 @@ anything to act on.
 
 Output goes to `Mod/Assemblies/`. `Mod/` is the folder to drop in RimWorld's `Mods/`.
 
+## Settings
+
+Open **Options -> Mod options -> French Grammar Plus**. All six checkboxes are global:
+the four grammar corrections start enabled; typography and verbose logging start disabled.
+Grammar switches affect newly generated text immediately. Startup diagnostics and edited word
+lists require a restart. Settings are saved by the native dialog when it closes.
+
+An optional **French Grammar Plus** MainButton opens the same native settings dialog. It is
+hidden by default, neither visible nor greyed out. RIMMSQOL or a compatible customization tool
+can reveal its `FGP_Settings` definition; no such tool is required for the primary access.
+The Def and native visibility inheritance are checked outside the game; interactive RIMMSQOL compatibility
+has not yet been verified.
+
 ## Tests
 
     powershell -NoProfile -File _tools/Run-Tests.ps1
 
-Twenty-six tests, a couple of seconds, and RimWorld is never started. The game's own
+Thirty-three tests, a few seconds, and RimWorld is never started. The game's own
 `LanguageWorker_French` loads outside it, so the grammar tests run each correction sandwiched
 around the real vanilla rules rather than around a description of them: every case asserts both
 that vanilla alone still produces the fault and that this mod's output is right. The word lists are
 checked against the animal defs the game actually ships, in both directions.
+
+The additional settings regressions cover all 64 checkbox combinations with real Scribe
+serialization, missing stored values, species-rule isolation in English/German, verbose
+output and the shortcut definition/worker contract. Unity-backed pronoun translation and logging endpoints
+are supplied by test callbacks; this is not proof of a running game or Harmony installation.
+See `Tests/RESULTS.md` for the tested artifact and remaining in-game checks.
 
 ## Credits
 

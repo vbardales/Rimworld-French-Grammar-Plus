@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <MainButtonDef>
+    <defName>FGP_Settings</defName>
+    <label>French Grammar Plus</label>
+    <description>Open French Grammar Plus settings.</description>
+    <workerClass>FrenchGrammarPlus.MainButtonWorker_Settings</workerClass>
+    <buttonVisible>false</buttonVisible>
+    <validWithoutMap>true</validWithoutMap>
+    <order>95</order>
+  </MainButtonDef>
+</Defs>

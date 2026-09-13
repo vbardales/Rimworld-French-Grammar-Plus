@@ -6,7 +6,7 @@ be seen there, and what counts as a pass.
 A test suite runs beside it, `_tools/Run-Tests.ps1`, and it is not a substitute. What it does cover
 is more than a static check: the game's own `LanguageWorker_French` loads outside RimWorld, so the
 suite runs each correction sandwiched around the real vanilla rules, exactly as Harmony arranges
-them in game. Every grammar rule in this mod is therefore already known to produce the right string.
+them in game. The tested input/output cases are documented in `Tests/RESULTS.md`.
 
 What the suite cannot do is load the mod into the game. Harmony never runs there, no pawn exists,
 no window is drawn, and no translation is resolved through the engine's own call chain. A patch
@@ -18,8 +18,8 @@ Neither file is shipped: both live beside `Mod/`, never inside it, so Steam neve
 ## Before starting
 
 - RimWorld 1.6 with **Harmony** active, and the game **in French** — Options → Language →
-  Français. Every patch in this mod hangs off `LanguageWorker_French`; in any other language the
-  mod is inert by construction, which is scenario 12.
+  Français. Two patches target `LanguageWorker_French`; the global pawn-rule patch checks the
+  active worker before rewriting anything. Other-language isolation is scenario 12.
 - No DLC is required. The word lists cover every expansion, so a run with all of them on is worth
   doing once.
 - Development mode on, so silent failures become red text. Mod settings → French Grammar Plus →
@@ -259,9 +259,9 @@ the game to reload*.
 
 1. Options → Language → English. Restart when asked.
 
-**Pass:** nothing changes anywhere, and no `[FrenchGrammarPlus]` line appears beyond the three
-startup ones. The patches are still installed — they hang off `LanguageWorker_French`, which is
-simply never called.
+**Pass:** English grammar remains unchanged, and no species-gender override is logged.
+Startup patch and lexicon diagnostics may still appear. The worker-specific patches do not run,
+and the global pawn-rule patch returns the original rules without rewriting them.
 
 **Fail:** any English text acquiring a French no-break space or a changed article. That would mean
 a patch resolved to the base `LanguageWorker` instead of the French one, which is what
@@ -282,6 +282,34 @@ The description promises no save data and free removal.
 
 **Pass:** loads clean, text back to vanilla French, and no `Could not find` line naming
 `nelim.frenchgrammarplus` or `FGP.`.
+
+## 14. Settings access, persistence and translated layout
+
+**Preconditions:** a separate test configuration with no saved French Grammar Plus settings;
+Harmony and this mod enabled, initially without a button customization mod. Use a new colony
+and repeat the persistence check on an existing test save. Keep the current DLL hash with the log.
+
+1. Open Options -> Mod options -> French Grammar Plus in French. Check that the first four
+   switches are enabled and typography/verbose logging disabled. Read every label, tooltip and
+   scope/data-file note. Repeat in English. No raw keys, fallback French/English, clipping or
+   overlap; close and reopen the page without exceptions.
+2. Toggle each grammar switch off/on and trigger its corresponding scenario above on newly
+   generated text. Toggle verbose logging, trigger a species override, and confirm its diagnostic
+   appears only when enabled. Enable it and restart to inspect startup patch/lexicon messages.
+3. Set a mixed combination of values, close the dialog, reopen it, restart the game and load
+   both test saves. The same global values survive every step; opening a different save does
+   not reset them. Return to the defaults before the remaining scenarios.
+4. Confirm there is no visible or greyed-out French Grammar Plus MainButton by default.
+   Add RIMMSQOL and record its exact version. Reveal `FGP_Settings`, activate it and verify
+   that it opens the same native dialog. Change values, close it and reopen from Mod options:
+   the values agree and persist after restart. Hide the shortcut again and verify that the
+   customization tool retains that choice. Repeat only for other integrations actually claimed.
+5. Inspect Player.log throughout: no settings/shortcut exceptions or repeated errors. Record
+   language, game/Harmony/customization versions, observed values and screenshots of both routes.
+
+**Expected:** useful controls, shared configuration and native saving work through both routes,
+with no required customization dependency for the primary route. A missing runtime environment
+or an integration not exercised remains unverified, not a passed test.
 
 ## What none of this can prove
 

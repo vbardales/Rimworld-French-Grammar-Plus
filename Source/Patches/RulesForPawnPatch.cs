@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
@@ -20,8 +21,14 @@ namespace FrenchGrammarPlus
 		// Passthrough postfix: Harmony feeds us the original return value and takes back ours.
 		// "pawnSymbol" and "kind" must match the original's parameter names.
 		internal static IEnumerable<Rule> Postfix(IEnumerable<Rule> values, string pawnSymbol, PawnKindDef kind)
+			=> Apply(values, pawnSymbol, kind, Find.ActiveLanguageWorker,
+				gender => gender.GetPossessive(), message => Log.Message(message));
+
+		internal static IEnumerable<Rule> Apply(IEnumerable<Rule> values, string pawnSymbol,
+			PawnKindDef kind, LanguageWorker worker, Func<Gender, string> possessive, Action<string> log)
 		{
-			if (!FrenchGrammarPlusMod.Settings.fixPawnKindGender
+			if (!(worker is LanguageWorker_French)
+				|| !FrenchGrammarPlusMod.Settings.fixPawnKindGender
 				|| !Lexicon.HasKindGenders
 				|| kind == null
 				|| !Lexicon.TryGetKindGender(kind.defName, out Gender gender))
@@ -30,10 +37,11 @@ namespace FrenchGrammarPlus
 				return values;
 			}
 
-			return Rewrite(values, pawnSymbol, gender);
+			return Rewrite(values, pawnSymbol, gender, worker, possessive, log);
 		}
 
-		private static IEnumerable<Rule> Rewrite(IEnumerable<Rule> values, string pawnSymbol, Gender gender)
+		private static IEnumerable<Rule> Rewrite(IEnumerable<Rule> values, string pawnSymbol,
+			Gender gender, LanguageWorker worker, Func<Gender, string> possessive, Action<string> log)
 		{
 			List<Rule> rules = values.ToList();
 			string prefix = pawnSymbol.NullOrEmpty() ? "" : pawnSymbol + "_";
@@ -47,8 +55,6 @@ namespace FrenchGrammarPlus
 			if (label.NullOrEmpty())
 				return rules;
 
-			LanguageWorker worker = Find.ActiveLanguageWorker;
-
 			for (int i = 0; i < rules.Count; i++)
 			{
 				if (!(rules[i] is Rule_String rule))
@@ -59,11 +65,11 @@ namespace FrenchGrammarPlus
 				else if (rule.keyword == prefix + "indefinite")
 					rules[i] = new Rule_String(rule.keyword, worker.WithIndefiniteArticle(label, gender));
 				else if (rule.keyword == prefix + "possessive")
-					rules[i] = new Rule_String(rule.keyword, gender.GetPossessive());
+					rules[i] = new Rule_String(rule.keyword, possessive(gender));
 			}
 
 			if (FrenchGrammarPlusMod.Settings.verboseLogging)
-				Log.Message($"[FrenchGrammarPlus] gender overridden for '{label}' ({pawnSymbol}): {gender}.");
+				log($"[FrenchGrammarPlus] gender overridden for '{label}' ({pawnSymbol}): {gender}.");
 
 			return rules;
 		}

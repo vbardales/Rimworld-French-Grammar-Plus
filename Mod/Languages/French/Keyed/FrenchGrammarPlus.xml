@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+  <FGP.SettingsTitle>French Grammar Plus</FGP.SettingsTitle>
+  <FGP.Scope>Réglages globaux. Les corrections s'appliquent immédiatement aux nouveaux textes générés. Les messages de démarrage du journal nécessitent un redémarrage.</FGP.Scope>
   <FGP.RichText>Élision à travers les balises de couleur</FGP.RichText>
   <FGP.RichText.Tip>« de &lt;color&gt;Éclat&lt;/color&gt; » devient « d'&lt;color&gt;Éclat&lt;/color&gt; ». Le jeu applique déjà ces règles, mais s'arrête devant une balise.</FGP.RichText.Tip>
 

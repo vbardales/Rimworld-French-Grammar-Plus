@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>French Grammar Plus — Workshop preview</title>
+<style>
+:root { --veil: #211D1A;
+--inkPrimary: #F2ECE1;
+--inkSecondary: #E3B57F;
+--accent: #5ABDE5;
+--badgeInk: #17120E;
+--veilRgb: 33,29,26; }
+* { box-sizing: border-box; }
+html, body { margin: 0; width: 896px; height: 504px; overflow: hidden; }
+body { font-family: "Segoe UI", system-ui, sans-serif; color: var(--inkPrimary); }
+.scene { position: absolute; inset: 0; background: url("Preview.png") center/cover; }
+.veil { position: absolute; inset: 0; background: radial-gradient(ellipse 850px 680px at top left, rgba(var(--veilRgb), .94) 0%, rgba(var(--veilRgb), .88) 34%, rgba(var(--veilRgb), 0) 100%); }
+.copy { position: absolute; top: 54px; left: 50px; width: 430px; text-shadow: 0 3px 10px rgba(0,0,0,.75); }
+h1 { margin: 0; font-size: 46px; font-weight: 600; line-height: 1.1; letter-spacing: 0; }
+.suffix { font-size: .65em; color: var(--inkSecondary); }
+.tag { margin: 8px 0 0; font-size: 24px; font-weight: 400; letter-spacing: .2px; line-height: 1.2; color: var(--inkSecondary); }
+.rule { width: 58px; height: 3px; margin: 20px 0 16px; background: var(--accent); }
+.summary { margin: 0; font-size: 21px; font-weight: 400; line-height: 1.45; }
+.badge { position: absolute; right: 0; top: 0; width: 80px; height: 80px; background: var(--accent); clip-path: polygon(0 0,100% 0,100% 100%); }
+.version { position: absolute; left: 869px; top: 27px; transform: translate(-50%,-50%) rotate(45deg); color: var(--badgeInk); font-size: 26px; font-weight: 700; line-height: 1; }
+</style>
+<div class="scene"></div><div class="veil"></div>
+<div class="copy">
+  <h1><span class="main-title">French Grammar</span><br><span class="suffix">Plus</span></h1>
+  <p class="tag">(unofficial)</p>
+  <div class="rule"></div>
+  <p class="summary">Finishes the French grammar the game already does most of.</p>
+</div>
+<div class="badge"></div><span class="version">1.6</span>
+</html>

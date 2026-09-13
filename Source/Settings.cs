@@ -31,6 +31,8 @@ namespace FrenchGrammarPlus
 		{
 			Listing_Standard list = new Listing_Standard();
 			list.Begin(inRect);
+			list.Label("FGP.Scope".Translate());
+			list.Gap();
 
 			list.CheckboxLabeled("FGP.RichText".Translate(), ref fixRichTextElision, "FGP.RichText.Tip".Translate());
 			list.CheckboxLabeled("FGP.AspiratedH".Translate(), ref fixAspiratedH, "FGP.AspiratedH.Tip".Translate());

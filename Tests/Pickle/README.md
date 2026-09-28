@@ -2,8 +2,8 @@
 
 Functional tests played by [Pickle](https://github.com/RimWorks/Rimworld-Pickle) in a real game. **Development
 only, never published**: the companion mod sits in `Mod/`, beside the shipped mod's own `Mod/`, and the staging
-copies it verbatim. **Nothing here has been played yet.** The suite was written on 2026-09-28 and its step
-patterns compile against Pickle's own expression engine (`Check-Steps.ps1`); whether it passes is the first run.
+copies it verbatim. **Pass 1 (French) was played on 2026-09-28: 31 passed, 0 failed.** The suite was written that day and its step
+patterns compile against Pickle's own expression engine (`Check-Steps.ps1`); passes 2 to 4 are filed, not yet played.
 
 The scenarios themselves are described in `../../TESTING.md` (fourteen, numbered). This file says what of them
 a running game is needed for, and why the rest is not here.

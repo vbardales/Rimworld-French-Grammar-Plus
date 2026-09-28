@@ -16,13 +16,12 @@ showcase:     complete
 tested_on:
 workshop:     3806761557 (0.1.0, creation of the publishIdFile only; Steam keeps every new item private, and switching it to public is the owner's)
 remaining:
-  - unverified: the Pickle suite, written on 2026-09-28 (`Tests/Pickle/`, seven features), has never been
-    played. Its step patterns compile against Pickle's own engine and none is declared twice; whether it passes
-    is the first run. Four passes are planned (`TESTING.md`, "Passes").
+  - unverified: only pass 1 (French minimal) of the Pickle suite has been played: 31 passed, 0 failed, 3 skipped
+    of 34 on tree `5064be6`, the two settings captures opened and read. The 3 skipped are the RIMMSQOL feature,
+    unproven. Passes 2 (English), 3 (restart) and 4 (RIMMSQOL) are filed and not yet played.
   - unverified: what the suite does not assert, and says so in `Tests/Pickle/README.md`: a sentence the engine
     builds and displays, a real label that carries a colour tag, and the word lists reloading on restart.
-  - unverified: never seen running. The fourteen scenarios of TESTING.md, none played; nothing has been
-    run in a game, and no Player.log has been read.
+  - unverified: the scenarios that passes 2, 3 and 4 cover (English isolation, restart, RIMMSQOL).
   - unverified: RIMMSQOL reveal and hide of the `FGP_Settings` shortcut; no customization integration
     has been exercised and no version is certified.
   - unverified: elision across a colour tag (scenario 9) cannot be played with the base game, since no
@@ -163,10 +162,10 @@ No tag and no GitHub release were made for it.
 ## Next transitions
 
 **`done` -> `tested`, the work now:** play the four passes of `TESTING.md` through the dispatcher, one request each, starting
-with the French minimal pass, and fix what the first run shows. **Filed on 2026-09-28 at 14:00: request
-`20260928-140036-944-e88b`, pass 1 French, tree `5064be6`, evidence to `Tests/Pickle/Evidence/2026-09-28-pass1-french`. The machine
-was held and 55 requests were waiting; nothing has been played.** The passes 2, 3 and 4 wait for what pass 1 shows: the steps were written against the game's API and
-compiled, never run. Then the conditions below.
+with the French minimal pass. **Pass 1 played 2026-09-28 17:10: request `20260928-140036-944-e88b`, tree `5064be6`, 31 passed, 0 failed,
+3 skipped (RIMMSQOL, not loaded by that pass), evidence in `Tests/Pickle/Evidence/2026-09-28-pass1-french`.** Filed after it, same tree:
+pass 2 English `20260928-191312-686-d0fb`, pass 3 restart `20260928-191314-912-05b4`, pass 4 RIMMSQOL `20260928-191315-350-63f2`.
+Then the conditions below.
 
 **`done` -> `tested`, as `TESTING.md` now states:** no scenario left `@wip`; every conditional scenario has
 run (the RIMMSQOL pass, with the report of each read; the colour-label and German passes are not planned, and why is in `TESTING.md`); no manual test

@@ -337,7 +337,7 @@ reading the code, and none of it has been done yet.
 
 ## Passes
 
-The Pickle suite is written (`Tests/Pickle/`, 2026-09-28) and has **never been played**. It is filed as requests,
+The Pickle suite is written (`Tests/Pickle/`, 2026-09-28) and pass 1 (French) has been played: 31 of 34 passed, the 3 skipped are the RIMMSQOL feature. Passes 2 to 4 are filed. It is filed as requests,
 one per pass, and the commands, the maps and what is deliberately left out are in `Tests/Pickle/README.md`.
 A skipped scenario is not a passed one: every `@requires` scenario needs its own pass.
 

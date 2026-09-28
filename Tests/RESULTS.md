@@ -71,3 +71,31 @@ blue accent. Segoe UI Semibold was confirmed via Chrome's platform-font report. 
 illustration is unchanged. Contrast is measured against the actual text-free rendered backdrop,
 over whole text rectangles; the badge uses its opaque accent. Local QA files are under
 `.build/preview-qa/`, including `thumbnail.png` and `results.json`.
+
+---
+
+# Verification results, 2026-09-28
+
+Audit against `AUDIT.md`. Base commit `ab7e776`, plus the working-tree changes of the same session:
+the rename to **French Grammar Renew (unofficial)** and packageId `nelim.frenchgrammar`, and documents.
+No game session, no Pickle request, no publication. The section above, of 2026-09-13, is kept as it was.
+
+| Check | Observed result |
+| --- | --- |
+| `dotnet build` of the unchanged sources, into a scratch folder | Exit 0; zero warnings or errors; DLL SHA-256 `DE2793A594515DD6DF17273330C138118154B54125AD558967BCE372F32AB942`, **identical** to the delivered one |
+| `_tools/Run-Tests.ps1`, before the rename | Exit 0; 33 of 33 |
+| `dotnet build` after the rename | Exit 0; the delivered DLL is now `32876E61CE262622F7867D56937DF607FBAD368273B79F7241D311BC98FD32CF`; `nelim.frenchgrammar` is in it, `nelim.frenchgrammarplus` is not |
+| `_tools/Run-Tests.ps1`, after the rename | Exit 0; 33 of 33 |
+| `Check-DefInjected` | Exit 0; 11,587 Defs indexed, 2 keys checked, 0 errors |
+| `Check-XmlFields`, `Check-DefRefs`, `Check-TypeRefs`, `Check-ConfigErrors` | Exit 0 each: no unknown field, no unresolved reference, no third-party type, 26 rules applied and no config error |
+| `Tests/artifact-sha256.json` against the disk, before this session's changes | 30 of 32 entries matched; `Mod/About/About.xml` and `Mod/LICENSE` had changed in the commits of 2026-09-20. Refreshed at the end of this session |
+| `LICENSE` and `ATTRIBUTION.md` against their `Mod/` copies | Byte-identical, before and after the provenance section was added |
+| Preview | Recomposed with `_tools/Render-Preview.cjs`: 896 x 504, 452,100 bytes; Segoe UI Semibold; contrast minima title 14.07, suffix 8.83, tag 7.21, summary 10.67, badge 8.72; full size and the 268 px thumbnail read |
+| ModIcon | Not modified. 128 x 128, 26,932 bytes; read at 32 px in a scratch copy |
+| Source scan | Every player-facing string goes through `.Translate()`; the `Log.*` calls are technical English |
+| Save data | Only `ModSettings` uses `Scribe`; no game, world or map component |
+
+## What this run does not establish
+
+It starts no game, so it says nothing of Harmony installing the three patches, of any text on screen, of the
+settings routes, of RIMMSQOL or of a restart. Those remain the fourteen scenarios of `TESTING.md`, none played.

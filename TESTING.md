@@ -1,4 +1,4 @@
-# French Grammar Plus — in-game test scenarios
+# French Grammar Renew — in-game test scenarios
 
 Nothing in this mod has ever been watched to run in a colony. This file is the list of what has to
 be seen there, and what counts as a pass.
@@ -22,7 +22,7 @@ Neither file is shipped: both live beside `Mod/`, never inside it, so Steam neve
   active worker before rewriting anything. Other-language isolation is scenario 12.
 - No DLC is required. The word lists cover every expansion, so a run with all of them on is worth
   doing once.
-- Development mode on, so silent failures become red text. Mod settings → French Grammar Plus →
+- Development mode on, so silent failures become red text. Mod settings → French Grammar Renew →
   **Verbose log** on for the first pass; it is what turns scenarios 1 and 2 into a readable answer
   instead of a guess.
 - The log to read afterwards, and to attach to any report:
@@ -281,15 +281,15 @@ The description promises no save data and free removal.
 2. Remove the mod and load the same save again.
 
 **Pass:** loads clean, text back to vanilla French, and no `Could not find` line naming
-`nelim.frenchgrammarplus` or `FGP.`.
+`nelim.frenchgrammar` or `FGP.`.
 
 ## 14. Settings access, persistence and translated layout
 
-**Preconditions:** a separate test configuration with no saved French Grammar Plus settings;
+**Preconditions:** a separate test configuration with no saved French Grammar Renew settings;
 Harmony and this mod enabled, initially without a button customization mod. Use a new colony
 and repeat the persistence check on an existing test save. Keep the current DLL hash with the log.
 
-1. Open Options -> Mod options -> French Grammar Plus in French. Check that the first four
+1. Open Options -> Mod options -> French Grammar Renew in French. Check that the first four
    switches are enabled and typography/verbose logging disabled. Read every label, tooltip and
    scope/data-file note. Repeat in English. No raw keys, fallback French/English, clipping or
    overlap; close and reopen the page without exceptions.
@@ -299,7 +299,7 @@ and repeat the persistence check on an existing test save. Keep the current DLL 
 3. Set a mixed combination of values, close the dialog, reopen it, restart the game and load
    both test saves. The same global values survive every step; opening a different save does
    not reset them. Return to the defaults before the remaining scenarios.
-4. Confirm there is no visible or greyed-out French Grammar Plus MainButton by default.
+4. Confirm there is no visible or greyed-out French Grammar Renew MainButton by default.
    Add RIMMSQOL and record its exact version. Reveal `FGP_Settings`, activate it and verify
    that it opens the same native dialog. Change values, close it and reopen from Mod options:
    the values agree and persist after restart. Hide the shortcut again and verify that the
@@ -311,6 +311,89 @@ and repeat the persistence check on an existing test save. Keep the current DLL 
 with no required customization dependency for the primary route. A missing runtime environment
 or an integration not exercised remains unverified, not a passed test.
 
+## What `tested` requires
+
+Written on 2026-09-28 from `AUDIT.md` (done -> tested). Everything below runs in a game, never by
+reading the code, and none of it has been done yet.
+
+- **Every scenario above has run in game and passed**, through a Pickle suite where a running game is
+  the only thing that can show it. A green Pickle run says the path was walked, not that the text on
+  screen is right: read `exitReason` before the counts, compare the scenarios played with the
+  features discovered, and open every `@review` capture.
+- **No scenario is left `@wip`.** One that was set aside is repaired and replayed, or deleted with
+  its reason. A `@wip` scenario is waiting, not passed.
+- **Every conditional scenario has run.** Each `@requires:<packageId>` had its own pass, with the map
+  that mounts that mod, and its report was read (`setName`, the suite and scenario names checked
+  before quoting it: the report folder is shared by the whole machine). A scenario skipped for lack of
+  its condition is not passed.
+- **No manual test is left to tick.** Each of the fourteen scenarios is either automated and green, or
+  listed below as not applicable with its reason. The `@review` captures are still read by a person,
+  but that is reading an image a scenario has already proved to be in the wanted state, not one more
+  manual test.
+- Logs read, both languages, settings persistence and the MainButton checked, new colony and existing
+  save covered where relevant, and a regression pass after any correction.
+
+## Passes
+
+A suite is played in several passes, one request each, and this file has to say how many and what
+each covers. This is the plan for the suite that does not exist yet (none is written); the passes
+follow `PickleTools/Authoring/README.md`, section 3, and are to be confirmed when the suite is.
+
+| Pass | Mod set | Language | Covers |
+|---|---|---|---|
+| 1. Minimal | Core, the DLCs, Harmony, RimLogging, Pickle and this mod, no optional mod | French | scenarios 1 to 8, 10, 11 and 14 (routes, defaults, layout) |
+| 2. English | the same set | English | scenario 12 (inert outside French) and the English layout of 14 |
+| 3. Third language | the same set | German | scenario 12, step 2: another language with its own worker |
+| 4. RIMMSQOL | pass 1 plus RIMMSQOL (Workshop 1084452457) | French | scenario 14, step 4: reveal, open, hide, and that the choice persists |
+| 5. Colour labels | pass 1 plus one mod that puts `<color>` in a label | French | scenario 9, the only one that needs a rich text tag; **the mod is not chosen yet** |
+| 6. Restart | pass 1, one launch that writes then one that reads | French | scenario 14, step 3, and the word lists reloading in scenario 11 |
+
+**No pass for an incompatibility:** none is declared in `About.xml`. **No pass without a DLC:** the mod
+reads no DLC def, so a missing DLC only leaves some word list entries unused, which nothing tests.
+b606's old mod is not declared incompatible either; see `BACKLOG.md`.
+
+## Where each scenario stands
+
+"Offline" means `_tools/Run-Tests.ps1`, which runs the mod's own code around the game's own French
+rules without starting the game. "In game" is what only a running colony can show. The last column is
+a proposal, to be settled when the suite is written; a step that does not exist in the catalogues
+(`PickleTools/docs/steps.md`, and Pickle's own on GitHub, not read here) has to be checked before any
+C# is written for it.
+
+| # | Offline today | Only a game can show | Proposed form |
+|---|---|---|---|
+| 1 | The three targets exist with the parameter names Harmony matches by (4 tests) | That Harmony actually patches them, and the log lines | Pickle: a load audit of the mod and a check for the three `patched.` lines |
+| 2 | The lists parse and agree with the game's defs (6 tests) | `Lexicon.Load` itself, which needs the game's `ModContentPack`; the survival of a junk line | Pickle for the count line; the junk-line step edits a shipped file, so it stays manual or is dropped with its reason |
+| 3, 4, 5, 8 | Each correction, around the real vanilla rules, on strings (8 tests) | That the engine's own sentences reach the patch, on real labels | Pickle, if a step can trigger a generated sentence and read it back; otherwise `@review` |
+| 6, 7 | Species gender on/off, other languages, unlisted species (1 test) | The article on a real animal, and the tale text | Same difficulty as 3 to 8; the tale needs a sculpture with a tale |
+| 9 | Elision across a tag, on strings | A real label that carries a tag | Pickle pass 5, `@requires` the chosen mod |
+| 10 | Typography off by default, colon and clock rules | That the font draws the no-break spaces | `@review` capture in French, read by a person |
+| 11 | Every switch turns off its own correction (1 test) | The same on newly generated text, and the lists on restart | Pickle, plus the restart pass |
+| 12 | English, German and null workers leave the rules alone | The same in a running English or German game | Pickle passes 2 and 3, asserting that no gender override is logged |
+| 13 | The mod stores nothing in a save: only `ModSettings` uses `Scribe`, no game component | Nothing: how the game loads a save with or without a mod is the game's, not the mod's | **Not applicable**, per "On ne teste pas le jeu" in `AUDIT.md`; the unresolved-def check of the load audit still covers the log line |
+| 14 | Defaults, 64 combinations round-trip, the shortcut Def and worker contract (5 tests) | Both routes, persistence across a restart, the shortcut through RIMMSQOL, layout in both languages | Pickle with the RIMMSQOL, keyed-click and hover steps of `PickleTools`, `@review` for layout |
+
+## What to keep after a test, and what to delete
+
+Rule of the collection's `AGENTS.md`: a report about a superseded build proves nothing about the
+current one, and reports can reach gigabytes on a full disk. `PickleTools/TESTING.md` has the long form.
+
+**Keep, on disk, per pass** (in `Tests/Pickle/Evidence/`, ignored by git): `summary.json` and
+`summary.md`, `junit.xml`, `messages.ndjson`, `Player.log`, `evidence-complete.txt` or `no-report.txt`,
+and the `@review` captures the pass exists to produce, **minified to JPEG**. Ask for the folder with
+`-EvidenceDir` so the report is copied out of the shared, rolling `pickle-reports` before the next run
+overwrites it. Never copy that folder whole.
+
+**Keep in git, one text line per run** in `docs/runs/history.md`: date, pass, revision, `exitReason`,
+scenarios played of discovered, verdict, and what was opened.
+
+**Delete**: a `screenshots/` folder copied whole, `report.html`, the report of a failed or
+infrastructure-error attempt once its line is written, a report superseded by a newer one for the
+same scenario and revision (unless the older is the only proof of a check the newer did not repeat: a
+language, an optional-mod pass), and any report of a superseded build once the pass is repeated on the
+current one. **Never delete a report that `STATUS.md` still points to**: repoint the field first.
+List what goes and what stays before deleting. A plain recursive delete stalls on capture names past
+MAX_PATH: mirror an empty folder over the target with robocopy first, then delete the empty shell.
 ## What none of this can prove
 
 - **That every one of the 115 genders is the right one.** The scenarios above check the machinery

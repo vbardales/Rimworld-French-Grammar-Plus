@@ -17,6 +17,22 @@ Source/bin/
 *.suo
 *.csproj.user
 
+# Windows Explorer folder icons. desktop.ini is listed under System below; the .ico files it points
+# at (Art/ModIcon.ico, Art/Preview.ico) are local derivatives and never belong in the repository.
+# Steam receives Mod/ as it is, so a desktop.ini or an .ico that slipped into it would reach players.
+*.ico
+
+# Compiled DirectDraw textures. RimWorld loads a .dds in preference to the .png beside it, so a stale
+# one silently overrides the texture that was edited. Derived files: never versioned. Written twice
+# because the patterns are not case-folded and the files on disk come out uppercase.
+*.dds
+*.DDS
+
+# Test evidence: Pickle reports and captures. Kept on disk only, one latest report per scenario and
+# per revision, and it can grow to gigabytes. What is versioned is one text line per run in
+# docs/runs/. See "What to keep after a test" in TESTING.md.
+Tests/Pickle/Evidence/
+evidence/
 # System
 Thumbs.db
 desktop.ini

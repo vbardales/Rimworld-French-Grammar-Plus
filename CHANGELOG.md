@@ -23,6 +23,15 @@ First version. RimWorld 1.6, Harmony required. **Not yet tested in game.**
 - Restricted the global species-rule patch to the active French language worker.
 - Added the final source-code link to the distributed About description.
 
+### Changed
+
+- Renamed **French Grammar Renew (unofficial)**, the collection's suffix for a mod that continues a
+  dead one, and the packageId is now `nelim.frenchgrammar` instead of `nelim.frenchgrammarplus`.
+  The 0.1.0 item was private, and nothing named the old id: no active mod list and no save.
+  The Workshop preview and the settings title follow the new name.
+- `ATTRIBUTION.md` now says why this mod does not start from b606's repository: no licence, a
+  design 1.6 has overtaken, and no maintainer activity since 2020-11-30.
+
 ### Initial features
 
 - Elision across rich text tags. The vanilla French rules stop at a markup tag, leaving

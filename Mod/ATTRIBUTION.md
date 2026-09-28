@@ -39,6 +39,26 @@ vocabulary is editorial work that remains his.
 If b606 or Adirelle would rather this mod did not exist in its present form, say so and it
 changes.
 
+### Why this mod does not start from b606's repository
+
+`b606/RimWorld-LanguageWorker_French` is public and has a Git history: created 2020-03-25, last
+pushed 2020-11-30, not archived, issues enabled, none open, one fork (Elevator89's, last pushed the
+day the repository was created). Its Workshop item (2081845369) was last updated on 2020-11-30 and,
+in the copy read on 2026-09-28, declares RimWorld 1.0, 1.1 and 1.2 only. Neither the repository
+nor the shipped files carry a licence, and the repository holds no licence file.
+
+The publishing workflow asks to start from the original's repository when the rights allow it, and
+to offer corrections there as pull requests. Neither route was open:
+
+- **Rights.** Without a licence the code stays all rights reserved. It cannot be forked into a mod
+  redistributed on Steam, and a history made of it is not fit for publication. This mod therefore
+  starts from an empty repository and takes nothing from it.
+- **Design.** That mod replaces the game's language worker wholesale and reads the call stack. RimWorld
+  1.6 has since adopted its rules, and what is left to correct is in other places and done by other
+  means (see the README, "Design notes"). A pull request would be a rewrite of a 1.0 to 1.2
+  codebase, not a correction of it.
+- **Contributions.** The repository takes issues and shows no maintainer activity since 2020-11-30.
+  No issue or pull request has been sent.
 ## Ludeon Studios
 
 `Assembly-CSharp.dll` was read — with `System.Reflection.MetadataLoadContext` and Mono.Cecil, for

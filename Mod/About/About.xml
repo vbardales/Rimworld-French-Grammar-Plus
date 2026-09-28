@@ -3,7 +3,7 @@
   <name>French Grammar Renew (unofficial)</name>
   <author>Nelim</author>
   <packageId>nelim.frenchgrammar</packageId>
-  <url>https://github.com/vbardales/Rimworld-French-Grammar-Plus</url>
+  <url>https://github.com/vbardales/Rimworld-French-Grammar-Renew</url>
   <supportedVersions>
     <li>1.6</li>
   </supportedVersions>
@@ -41,7 +41,7 @@ The elision and plural rules that are now vanilla were written by Adirelle and b
 
 No save data. Can be added to or removed from an ongoing game.
 
-[url=https://github.com/vbardales/Rimworld-French-Grammar-Plus]Source code on GitHub[/url]</description>
+[url=https://github.com/vbardales/Rimworld-French-Grammar-Renew]Source code on GitHub[/url]</description>
   <modDependencies>
     <li>
       <packageId>brrainz.harmony</packageId>

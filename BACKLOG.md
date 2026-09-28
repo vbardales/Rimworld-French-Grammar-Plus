@@ -5,12 +5,12 @@ part of a gate unless `STATUS.md` says so. Each line says whether it was verifie
 
 ## Waiting for the owner
 
-- **Rename the repository and the folder to match the name.** On 2026-09-28 the display name became
-  `French Grammar Renew (unofficial)` and the packageId `nelim.frenchgrammar`. The repository is still
-  `Rimworld-French-Grammar-Plus` and the folder `FrenchGrammarPlus`. Order when it is done: rename the
-  GitHub repository first, then the `<url>` in `About.xml` and the link ending the description, then
-  the folder (the session's own working directory locks it: move the contents, not the folder). The
-  code keeps its namespace and assembly name `FrenchGrammarPlus`; nothing requires renaming them.
+- **Done on 2026-09-28, at the owner's word: repository and folder renamed to Renew.** The repository is
+  `Rimworld-French-Grammar-Renew` (the old address redirects), the folder `FrenchGrammarRenew`, the name
+  `French Grammar Renew (unofficial)` and the packageId `nelim.frenchgrammar`. The code keeps its namespace and
+  assembly name `FrenchGrammarPlus`; nothing requires renaming them. The Steam item still carries the old id
+  and name until the next upload, and the settings file the game writes is named after the folder, so it starts
+  again under the new name.
 - **The ModIcon speech bubble reads "plus".** The name no longer says it. The icon is the owner's alone
   to generate or to keep; it was not touched.
 - **Choose the mod that colours a label**, for the pass that plays scenario 9 (`TESTING.md`, "Passes").

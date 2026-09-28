@@ -5,7 +5,7 @@ translation_fr: complete
 settings_audit: complete
 mod:          French Grammar Renew (unofficial)
 packageId:    nelim.frenchgrammar
-repo:         Rimworld-French-Grammar-Plus
+repo:         Rimworld-French-Grammar-Renew
 visibility:   public
 detached:     yes
 stage:        preTest
@@ -80,8 +80,8 @@ Each verdict is what was checked today, not what an earlier sheet said.
 1. **dansMonoRepo -> horsMonoRepo: validated.** Own git root, public GitHub repository, `origin/master` equal
    to the local head, STATUS.md present, licence `silent` justified and consistent, English documents,
    `LICENSE` and `ATTRIBUTION.md` byte-identical to their `Mod/` copies. Naming is coherent on purpose, not
-   literally: `nelim.frenchgrammar`, `French Grammar Renew (unofficial)`, `Rimworld-French-Grammar-Plus`,
-   `FrenchGrammarPlus` (the last two are still `Plus`: renaming them waits for the owner, `BACKLOG.md`).
+   literally: `nelim.frenchgrammar`, `French Grammar Renew (unofficial)`, `Rimworld-French-Grammar-Renew`,
+   `FrenchGrammarRenew`: all four now follow the name, the repository and the folder having been renamed on 2026-09-28.
    **New today: the origin's repository was looked at** (below) and the reason for not starting from it is in
    `ATTRIBUTION.md`.
 2. **-> ModIcon generated: validated by the owner's recorded approval, with one open question.** Build
@@ -116,7 +116,7 @@ Each verdict is what was checked today, not what an earlier sheet said.
 
 - Audited: `ab7e776` (adds `PublishedFileId.txt` and the 0.1.0 entry) on top of `acf1b47`, plus the
   working-tree changes of this session, committed together with this sheet.
-- **Renamed** on the owner's word: name `French Grammar Renew (unofficial)` (was `French Grammar Plus`),
+- **Renamed** on the owner's word, the repository (`Rimworld-French-Grammar-Renew`, the old address redirects) and the folder (`FrenchGrammarRenew`) included: name `French Grammar Renew (unofficial)` (was `French Grammar Plus`),
   packageId `nelim.frenchgrammar` (was `nelim.frenchgrammarplus`), following the collection's `Renew` for a mod
   that continues a dead one and the 2026-09-27 rule that the packageId carries neither `Renew` nor a suffix.
   Checked before changing it: the new id is free among the 126 mods of the collection; no save (29) and no

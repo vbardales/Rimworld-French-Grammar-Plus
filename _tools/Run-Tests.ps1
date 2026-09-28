@@ -231,7 +231,7 @@ function Corrected([string]$s) {
 
 $Guard = [string][char]0x200B
 
-Write-Output "French Grammar Plus - test suite"
+Write-Output "French Grammar Renew - test suite"
 Write-Output "  mod       $ModRoot"
 Write-Output "  game data $GameData"
 if (-not $haveCode) { Write-Output "  NOTE: code tests will be skipped, an assembly is missing" }

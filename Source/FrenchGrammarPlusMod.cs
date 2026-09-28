@@ -6,7 +6,7 @@ namespace FrenchGrammarPlus
 {
 	public class FrenchGrammarPlusMod : Mod
 	{
-		public const string PackageId = "nelim.frenchgrammarplus";
+		public const string PackageId = "nelim.frenchgrammar";
 
 		public static Settings Settings { get; private set; }
 		public static FrenchGrammarPlusMod Instance { get; private set; }

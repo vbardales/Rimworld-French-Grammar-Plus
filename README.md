@@ -1,4 +1,4 @@
-# French Grammar Plus (unofficial)
+# French Grammar Renew (unofficial)
 
 UNOFFICIAL. This mod is published without the original author's explicit consent. If the original author contacts me to request its removal, I undertake to take it down promptly.
 
@@ -74,12 +74,12 @@ Output goes to `Mod/Assemblies/`. `Mod/` is the folder to drop in RimWorld's `Mo
 
 ## Settings
 
-Open **Options -> Mod options -> French Grammar Plus**. All six checkboxes are global:
+Open **Options -> Mod options -> French Grammar Renew**. All six checkboxes are global:
 the four grammar corrections start enabled; typography and verbose logging start disabled.
 Grammar switches affect newly generated text immediately. Startup diagnostics and edited word
 lists require a restart. Settings are saved by the native dialog when it closes.
 
-An optional **French Grammar Plus** MainButton opens the same native settings dialog. It is
+An optional **French Grammar Renew** MainButton opens the same native settings dialog. It is
 hidden by default, neither visible nor greyed out. RIMMSQOL or a compatible customization tool
 can reveal its `FGP_Settings` definition; no such tool is required for the primary access.
 The Def and native visibility inheritance are checked outside the game; interactive RIMMSQOL compatibility

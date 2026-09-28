@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>French Grammar Plus (unofficial)</name>
+  <name>French Grammar Renew (unofficial)</name>
   <author>Nelim</author>
-  <packageId>nelim.frenchgrammarplus</packageId>
+  <packageId>nelim.frenchgrammar</packageId>
   <url>https://github.com/vbardales/Rimworld-French-Grammar-Plus</url>
   <supportedVersions>
     <li>1.6</li>

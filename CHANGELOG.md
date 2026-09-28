@@ -46,3 +46,12 @@ First version. RimWorld 1.6, Harmony required. **Not yet tested in game.**
 
 - Every rule already present in vanilla `LanguageWorker_French`. See `ATTRIBUTION.md`.
 - `ToTitleCase` call-stack inspection.
+
+## [0.1.0] — 2026-09-23
+
+Creation of a publishIdFile. This first upload had one purpose: create the Workshop item, which
+Steam makes private, and obtain `Mod/About/PublishedFileId.txt`. It is an act, not a tested
+version, and it does not say that the mod is public.
+
+It carried `Mod/` exactly as committed in `acf1b47`; nothing has changed there since, apart from
+the added `PublishedFileId.txt`.

@@ -1,0 +1,11 @@
+# The minimal pass, "sans-facultatifs": the mod and what it hard-depends on, plus two development-only
+# tools of PickleTools. Neither is a gameplay dependency of the mod, and neither changes what it does.
+#
+#   ScreenshotMode  hides the HUD and Pickle's own panels around an open window, for the @review captures.
+#   LoadAudit       reads the game log for what belongs to the mod, and compares its Keyed texts with the
+#                   active language: the criterion "the load is clean", which no_errors_were_logged cannot say.
+#
+# Order as the staging activates it: Harmony, Core and the DLCs, RimLogging, Pickle, then this file, then
+# the mod, then its Pickle tests.
+nelim.pickletools.screenshotmode   path:PickleTools/ScreenshotMode/Mod
+nelim.pickletools.loadaudit        path:PickleTools/LoadAudit/Mod

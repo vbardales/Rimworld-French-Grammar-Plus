@@ -337,44 +337,40 @@ reading the code, and none of it has been done yet.
 
 ## Passes
 
-A suite is played in several passes, one request each, and this file has to say how many and what
-each covers. This is the plan for the suite that does not exist yet (none is written); the passes
-follow `PickleTools/Authoring/README.md`, section 3, and are to be confirmed when the suite is.
+The Pickle suite is written (`Tests/Pickle/`, 2026-09-28) and has **never been played**. It is filed as requests,
+one per pass, and the commands, the maps and what is deliberately left out are in `Tests/Pickle/README.md`.
+A skipped scenario is not a passed one: every `@requires` scenario needs its own pass.
 
-| Pass | Mod set | Language | Covers |
+| Pass | Mod set | Language | Plays |
 |---|---|---|---|
-| 1. Minimal | Core, the DLCs, Harmony, RimLogging, Pickle and this mod, no optional mod | French | scenarios 1 to 8, 10, 11 and 14 (routes, defaults, layout) |
-| 2. English | the same set | English | scenario 12 (inert outside French) and the English layout of 14 |
-| 3. Third language | the same set | German | scenario 12, step 2: another language with its own worker |
-| 4. RIMMSQOL | pass 1 plus RIMMSQOL (Workshop 1084452457) | French | scenario 14, step 4: reveal, open, hide, and that the choice persists |
-| 5. Colour labels | pass 1 plus one mod that puts `<color>` in a label | French | scenario 9, the only one that needs a rich text tag; **the mod is not chosen yet** |
-| 6. Restart | pass 1, one launch that writes then one that reads | French | scenario 14, step 3, and the word lists reloading in scenario 11 |
+| 1. French, minimal | Core, the DLCs, Harmony, RimLogging, Pickle, this mod, ScreenshotMode and LoadAudit | French | features 01, 02 and 04: scenarios 1, 3 to 8, 10, 11 and 14 |
+| 2. English, minimal | the same set | English | features 01, 03 and 04: scenario 12 and the English layout of 14 |
+| 3. Restart | the same set | French | features 05 then 06, in two launches under one lock: scenario 14, step 3 |
+| 4. RIMMSQOL | pass 1 plus RIMMSQOL (Workshop 1084452457) and its Pickle steps | French | feature 07: scenario 14, step 4 |
 
-**No pass for an incompatibility:** none is declared in `About.xml`. **No pass without a DLC:** the mod
-reads no DLC def, so a missing DLC only leaves some word list entries unused, which nothing tests.
-b606's old mod is not declared incompatible either; see `BACKLOG.md`.
+**Not planned:** a pass with a mod that colours a label (scenario 9's rule is asserted on a string that carries the
+tag, the mod is not chosen); a German pass (the mod ships English and French, so a load audit would report missing
+keys by design, and the German worker is proved offline); a pass without a DLC (the mod reads no DLC def); a pass
+for an incompatibility (none is declared; b606's old mod is not, see `BACKLOG.md`).
 
 ## Where each scenario stands
 
-"Offline" means `_tools/Run-Tests.ps1`, which runs the mod's own code around the game's own French
-rules without starting the game. "In game" is what only a running colony can show. The last column is
-a proposal, to be settled when the suite is written; a step that does not exist in the catalogues
-(`PickleTools/docs/steps.md`, and Pickle's own on GitHub, not read here) has to be checked before any
-C# is written for it.
+"Offline" means `_tools/Run-Tests.ps1`, which runs the mod's own code around the game's own French rules without
+starting the game. "In game" is what only a running colony can show. "Written as" is the Pickle feature that
+asserts it, none of which has been played.
 
-| # | Offline today | Only a game can show | Proposed form |
+| # | Offline today | Only a game can show | Written as |
 |---|---|---|---|
-| 1 | The three targets exist with the parameter names Harmony matches by (4 tests) | That Harmony actually patches them, and the log lines | Pickle: a load audit of the mod and a check for the three `patched.` lines |
-| 2 | The lists parse and agree with the game's defs (6 tests) | `Lexicon.Load` itself, which needs the game's `ModContentPack`; the survival of a junk line | Pickle for the count line; the junk-line step edits a shipped file, so it stays manual or is dropped with its reason |
-| 3, 4, 5, 8 | Each correction, around the real vanilla rules, on strings (8 tests) | That the engine's own sentences reach the patch, on real labels | Pickle, if a step can trigger a generated sentence and read it back; otherwise `@review` |
-| 6, 7 | Species gender on/off, other languages, unlisted species (1 test) | The article on a real animal, and the tale text | Same difficulty as 3 to 8; the tale needs a sculpture with a tale |
-| 9 | Elision across a tag, on strings | A real label that carries a tag | Pickle pass 5, `@requires` the chosen mod |
-| 10 | Typography off by default, colon and clock rules | That the font draws the no-break spaces | `@review` capture in French, read by a person |
-| 11 | Every switch turns off its own correction (1 test) | The same on newly generated text, and the lists on restart | Pickle, plus the restart pass |
-| 12 | English, German and null workers leave the rules alone | The same in a running English or German game | Pickle passes 2 and 3, asserting that no gender override is logged |
-| 13 | The mod stores nothing in a save: only `ModSettings` uses `Scribe`, no game component | Nothing: how the game loads a save with or without a mod is the game's, not the mod's | **Not applicable**, per "On ne teste pas le jeu" in `AUDIT.md`; the unresolved-def check of the load audit still covers the log line |
-| 14 | Defaults, 64 combinations round-trip, the shortcut Def and worker contract (5 tests) | Both routes, persistence across a restart, the shortcut through RIMMSQOL, layout in both languages | Pickle with the RIMMSQOL, keyed-click and hover steps of `PickleTools`, `@review` for layout |
-
+| 1 | The three targets exist with the parameter names Harmony matches by (4 tests) | That Harmony actually patches them | `01-loads`: Harmony's own patch record, a load with no error, the load audit |
+| 2 | The lists parse and agree with the game's defs (6 tests) | `Lexicon.Load` itself, which needs the game's `ModContentPack`; the survival of a junk line | Not written: the junk-line step edits a shipped file, so it is dropped with its reason; the count line is not asserted (no step reads an info message) |
+| 3, 4, 5, 8 | Each correction, around the real vanilla rules, on strings (8 tests) | That the patched worker of a running game applies them | `02-french-grammar`: the worker's `PostProcessed` and `WithDefiniteArticle`, on seventeen table rows and eight scenarios. **Not shown:** a sentence the engine builds and displays |
+| 6, 7 | Species gender on/off, other languages, unlisted species (1 test) | The article on a real animal | `02-french-grammar`: a real pawn, the rules the game builds for it. The tale text is not read back |
+| 9 | Elision across a tag, on strings | A real label that carries a tag | The rule on a string that carries the tag, in `02-french-grammar`. **A real label is not covered** |
+| 10 | Typography off by default, colon and clock rules | That the font draws the no-break spaces | The spacing by value in `02-french-grammar`; whether the font draws it is for a person, on a capture, and none is taken |
+| 11 | Every switch turns off its own correction (1 test) | The same on the next string, and the lists on restart | `02-french-grammar`, every switch read on each call; the lists on restart are not written |
+| 12 | English, German and null workers leave the rules alone | The same in a running English game | `03-english-isolation`, pass 2 |
+| 13 | The mod stores nothing in a save: only `ModSettings` uses `Scribe`, no game component | Nothing: how the game loads a save with or without a mod is the game's, not the mod's | **Not applicable**, per "On ne teste pas le jeu" in `AUDIT.md` |
+| 14 | Defaults, 64 combinations round-trip, the shortcut Def and worker contract (5 tests) | Both routes, persistence across a restart, the shortcut through RIMMSQOL, layout in both languages | `04-settings` and its two `@review` captures, `05` and `06`, `07`, and the load audit's language check |
 ## What to keep after a test, and what to delete
 
 Rule of the collection's `AGENTS.md`: a report about a superseded build proves nothing about the

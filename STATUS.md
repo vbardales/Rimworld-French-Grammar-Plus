@@ -8,7 +8,7 @@ packageId:    nelim.frenchgrammar
 repo:         Rimworld-French-Grammar-Renew
 visibility:   public
 detached:     yes
-stage:        preTest
+stage:        done
 licence:      silent
 licence_at:   b606's repository and Workshop item carry no licence (checked again on 2026-09-28), and the source has declared only RimWorld 1.0 to 1.2 since its last update on 2020-11-30. No file, no line and no word list of his is copied. One idea is his and is credited in ATTRIBUTION.md: the zero-width guard that keeps the vanilla elision rules off an aspirated word. This mod's own LICENSE is a bare MIT.
 dependencies: declared
@@ -16,9 +16,11 @@ showcase:     complete
 tested_on:
 workshop:     3806761557 (0.1.0, creation of the publishIdFile only; Steam keeps every new item private, and switching it to public is the owner's)
 remaining:
-  - feature: no Pickle suite. Blocks `done`. AUDIT.md asks for the Gherkin tests to be written, with
-    their scope justified; none exists (`Tests/Pickle/` is absent). `TESTING.md` now holds the pass
-    plan and a coverage map that a suite would start from.
+  - unverified: the Pickle suite, written on 2026-09-28 (`Tests/Pickle/`, seven features), has never been
+    played. Its step patterns compile against Pickle's own engine and none is declared twice; whether it passes
+    is the first run. Four passes are planned (`TESTING.md`, "Passes").
+  - unverified: what the suite does not assert, and says so in `Tests/Pickle/README.md`: a sentence the engine
+    builds and displays, a real label that carries a colour tag, and the word lists reloading on restart.
   - unverified: never seen running. The fourteen scenarios of TESTING.md, none played; nothing has been
     run in a game, and no Player.log has been read.
   - unverified: RIMMSQOL reveal and hide of the `FGP_Settings` shortcut; no customization integration
@@ -32,19 +34,19 @@ remaining:
   - unverified: nothing has been uploaded since the 0.1.0 creation, so the page's description, gallery
     and change notes have never been seen in place.
 session:      local_f7c8f179-b0fc-432a-bd6f-23aa8e0fddd0
-updated:      2026-09-28, audited against AUDIT.md (protocols c5ca0c0 plus local edits); stage done -> preTest
+updated:      2026-09-28, audited against AUDIT.md (protocols c5ca0c0 plus local edits); done -> preTest, then preTest -> done once the Pickle suite was written
 ---
 
 # French Grammar Renew (unofficial): status
 
-The session title is `frenchgrammar / preTest`: the packageId without `nelim.`, then the `stage`.
+The session title is `frenchgrammar / done`: the packageId without `nelim.`, then the `stage`.
 
 ## Verdict, 2026-09-28
 
-**`done` -> `preTest`.** The stage codes of this sheet are the states of the AUDIT.md chain under the same
-names: `preTest` is the state after `l10n` and before `done`. Every earlier state is established. `done` is
-not, for one reason: **the Pickle suite the workflow asks to be written does not exist.** Everything else
-`done` asks for is in place and was re-run today.
+**`done`, reached the same day.** The stage codes of this sheet are the states of the AUDIT.md chain under the same
+names. The audit of the morning found every state up to `preTest` established and `done` not, for one reason:
+**the Pickle suite the workflow asks to be written did not exist.** It was written the same day, and `done` holds
+again. The session title moved with it, `frenchgrammar / preTest` then `frenchgrammar / done`.
 
 The previous audit (2026-09-13) had set `done`. Its text is archived unchanged in
 `docs/audits/2026-09-13-status-sections.md`; what it says about the stage, the icon approval and the
@@ -56,9 +58,9 @@ workflow it quotes is superseded by this section.
 |---|---|
 | Functional scenarios written with preconditions, actions and expected results | validated: fourteen in `TESTING.md` |
 | Automated tests written, run and green | validated: 33 of 33, today, twice (before and after the rename) |
-| **Pickle (Gherkin) tests written, their scope justified** | **not met: none written** (see `remaining`) |
+| **Pickle (Gherkin) tests written, their scope justified** | validated: seven features in `Tests/Pickle/`, the scope and what is left out justified in its `README.md`. Written, not played: execution is not asked at this step |
 | XML tests written, run and green | validated: five checkers clean, all shipped XML parses |
-| Non-applicability justified where claimed | scenario 13 justified in `TESTING.md`; **Pickle as a whole cannot be justified away**: what the mod exists to do is show in a running game |
+| Non-applicability justified where claimed | validated: scenario 13, the German pass, the junk-line step and the real colour-tag label each carry their reason |
 | Results match the delivered version | validated: the delivered DLL is what the sources build (below) |
 
 ## Ordered gates, 2026-09-28
@@ -96,7 +98,7 @@ Each verdict is what was checked today, not what an earlier sheet said.
    Workshop link and in `loadAfter` with Core; the code uses it and ships none of it. No third-party type
    is referenced (`Check-TypeRefs`), no `LoadFolders`, no conditional patch. RIMMSQOL is an optional
    integration and correctly not declared.
-8. **-> done: not established** (above).
+8. **-> done: validated** (above), once the Pickle suite was written.
 9. **-> tested: unverified.** Nothing was played. See "Next transitions".
 10. **-> prepublished, 11. -> published: not started.** A `0.1.0` upload exists (below). It is an act, not a
     step of the chain: it neither advances nor implies `prepublished`.
@@ -114,6 +116,11 @@ Each verdict is what was checked today, not what an earlier sheet said.
   `Art/preview.template.html`. The DLL was rebuilt and the Workshop preview recomposed with the existing
   renderer (the illustration is unchanged; only the suffix word differs). The `0.1.0` item still carries the
   old id and the old name until the next upload.
+- **Wrote the Pickle suite** (`Tests/Pickle/`): seven features, four local step classes bound against the shipped
+  DLL (built, 23,552 bytes, tracked), two pass maps, a README with the scope and what is left out, and
+  `Check-Steps.ps1`, which compiles all 120 step patterns, the shared ones included, with Pickle's own expression
+  engine (none invalid, none declared twice). Modelled on the Flavor Text Extended - Francais suite; the
+  RIMMSQOL feature reuses the shared steps of `PickleTools/RimmsqolSteps` unchanged. Not played.
 - Added `docs/PROTOCOLS-READ.md`, `BACKLOG.md`, `docs/runs/history.md`; archived the 2026-09-13 sections;
   wrote the `tested` criteria, the pass plan, the coverage map and the evidence rule into `TESTING.md`;
   wrote the provenance section into both `ATTRIBUTION.md` copies; refreshed `Tests/artifact-sha256.json`,
@@ -155,14 +162,12 @@ No tag and no GitHub release were made for it.
 
 ## Next transitions
 
-**`preTest` -> `done`, the only work strictly needed:** write the Pickle suite, `Tests/Pickle/`, with its
-scope justified. Scenarios 1, 11, 12 and 14 are the clear candidates and the steps for 14 exist
-(`RimmsqolSteps`, `KeyedClick`, `HoverSteps`, `LoadAudit`). Whether a step can trigger an engine sentence and
-read it back, for scenarios 3 to 8, is to be settled in Pickle's own catalogue before any C# is written.
-Executing the suite is not asked at this step.
+**`done` -> `tested`, the work now:** play the four passes of `TESTING.md` through the dispatcher, one request each, starting
+with the French minimal pass, and fix what the first run shows: the steps were written against the game's API and
+compiled, never run. Then the conditions below.
 
 **`done` -> `tested`, as `TESTING.md` now states:** no scenario left `@wip`; every conditional scenario has
-run (the RIMMSQOL pass, the colour-label pass, the German pass, with the report of each read); no manual test
+run (the RIMMSQOL pass, with the report of each read; the colour-label and German passes are not planned, and why is in `TESTING.md`); no manual test
 left to tick, each scenario either automated and green or listed not applicable with its reason; `@review`
 captures opened; both languages; logs read. Keep only the evidence that still proves something.
 

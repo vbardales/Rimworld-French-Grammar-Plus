@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>French Grammar Renew - Pickle tests</name>
+  <author>Nelim</author>
+  <packageId>nelim.frenchgrammar.pickletests</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <description>In-game functional tests for French Grammar Renew, run by Pickle. Development only: never published.
+
+Seven features: the mod loading, its patches installed and its texts present; the French corrections applied by the patched language worker of a running game; English isolation; the settings page and its hidden shortcut (captured, tagged @review); a two-launch restart test of the saved settings; and, in the RIMMSQOL pass only, RIMMSQOL revealing and hiding the shortcut. They need the companion steps assembly built from Tests/Pickle/Source against Mod/Assemblies/FrenchGrammarPlus.dll. See TESTING.md at the repository root for the passes and Tests/Pickle/README.md for what is deliberately left out.</description>
+  <modDependencies>
+    <li>
+      <packageId>nelim.frenchgrammar</packageId>
+      <displayName>French Grammar Renew (unofficial)</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/3806761557</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>rimworks.pickle</packageId>
+      <displayName>Pickle</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/3791648678</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>nelim.frenchgrammar</li>
+    <li>rimworks.pickle</li>
+  </loadAfter>
+</ModMetaData>

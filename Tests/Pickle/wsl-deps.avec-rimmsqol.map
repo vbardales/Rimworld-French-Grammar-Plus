@@ -1,0 +1,13 @@
+# Pass "avec-rimmsqol": RIMMSQOL, the button customization mod MOD_SETTINGS.md names, and the shared Pickle
+# steps that drive it (PickleTools/RimmsqolSteps). Plays 07 only. It answers what the other passes cannot: does
+# RIMMSQOL's own list offer FGP_Settings, hidden; can it reveal it, and does the revealed button open the same
+# page as Mod options; does hiding it again empty the bar.
+#
+#   MalteSchulze.RIMMSqol, Workshop 1084452457. Its About.xml declares brrainz.harmony for 1.1 to 1.5 only, but
+#   its code references 0Harmony and its 1.6 folder ships no copy, so Harmony is a real dependency; the
+#   staging activates it first in every pass, so it is deliberately not repeated here.
+#   nelim.pickletools.rimmsqol is the steps assembly; it hard-depends on Pickle and on RIMMSQOL, so it goes
+#   after it. ScreenshotMode is for the captures.
+MalteSchulze.RIMMSqol              1084452457
+nelim.pickletools.rimmsqol         path:PickleTools/RimmsqolSteps/Mod
+nelim.pickletools.screenshotmode   path:PickleTools/ScreenshotMode/Mod

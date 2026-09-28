@@ -51,8 +51,8 @@ The restart pair is excluded from the bulk passes, because its reader run alone 
 
 | # | Pass | Map | Filter |
 |---|---|---|---|
-| 1 | French, minimal | `wsl-deps.sans-facultatifs.map` | `'French Grammar Renew - Pickle tests,!03-english-isolation,!05-restart-write,!06-restart-read'` |
-| 2 | English, minimal | `wsl-deps.sans-facultatifs.map` | `'French Grammar Renew - Pickle tests,!02-french-grammar,!05-restart-write,!06-restart-read'` |
+| 1 | French, minimal | `wsl-deps.sans-facultatifs.map` | `'French Grammar Renew - Pickle tests,!03-english-isolation,!05-restart-write,!06-restart-read,!07-rimmsqol-shortcut'` |
+| 2 | English, minimal | `wsl-deps.sans-facultatifs.map` | `'French Grammar Renew - Pickle tests,!02-french-grammar,!05-restart-write,!06-restart-read,!07-rimmsqol-shortcut'` |
 | 3 | Restart | `wsl-deps.sans-facultatifs.map` | `'05-restart-write'` then `-Then '06-restart-read'`, French |
 | 4 | RIMMSQOL | `wsl-deps.avec-rimmsqol.map` | `'07-rimmsqol-shortcut'`, French |
 
@@ -65,7 +65,7 @@ captures. No pass exists for an incompatibility, none being declared.
 powershell.exe -ExecutionPolicy Bypass -File Rimworld-Ticket-Dispatcher\scripts\Submit-PickleRun.ps1 `
   -Mod FrenchGrammarRenew -Owner local_<id> -Label "pass 1 French <sha>" -Language French `
   -DepMap wsl-deps.sans-facultatifs.map `
-  -Filter 'French Grammar Renew - Pickle tests,!03-english-isolation,!05-restart-write,!06-restart-read' `
+  -Filter 'French Grammar Renew - Pickle tests,!03-english-isolation,!05-restart-write,!06-restart-read,!07-rimmsqol-shortcut' `
   -EvidenceDir FrenchGrammarRenew/Tests/Pickle/Evidence/<date>-<pass>
 ```
 

@@ -103,3 +103,7 @@ settings routes, of RIMMSQOL or of a restart. Those remain the fourteen scenario
 ## Addendum, 2026-09-28: two words added to the aspirated-h list
 
 `hachis` and `harissa` were added to `Mod/Data/aspirated-h.txt` (78 entries), both confirmed aspirated by the Académie française (9th edition). The DLL is unchanged. `_tools/Run-Tests.ps1`: 33 of 33; the shield test gained a case for each word and was seen to fail on a scratch copy without `hachis`. `Tests/artifact-sha256.json` refreshed for the data file and the test script.
+
+## Addendum, 2026-09-28: the hall prefix dropped
+
+The `hall` prefix of `Mod/Data/aspirated-h.txt` is removed (77 entries), a defect found the same day: it caught `hallucination(s)`, `hallucinogene` and `hallux`. The DLL is unchanged. `_tools/Run-Tests.ps1`: 33 of 33. Both negative tests now list those words, and both were seen to fail on a scratch copy with the prefix put back, naming `hallucination`, `hallucinogene` and `hallux`.

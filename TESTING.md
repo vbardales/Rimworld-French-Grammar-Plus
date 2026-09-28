@@ -36,7 +36,7 @@ Read out of the game's own files on 2026-09-12, not copied from the mod's prose.
 
 | Claim | Where it was checked | Value |
 |---|---|---|
-| Aspirated-h prefixes | `Mod/Data/aspirated-h.txt` | 78 |
+| Aspirated-h prefixes | `Mod/Data/aspirated-h.txt` | 77 |
 | Species genders | `Mod/Data/pawnkind-gender.txt` | 115: 25 feminine, 90 masculine |
 | Animal pawn kinds the game ships | `Data/*/Defs/ThingDefs_Races/Races_Animal*.xml` | 115 |
 | Listed kinds missing from the game | set difference, both directions | 0 |
@@ -77,7 +77,7 @@ than the two above.
 
 1. Same launch, same log.
 
-**Pass:** one line reading `78 aspirated-h words, 115 species genders loaded.`
+**Pass:** one line reading `77 aspirated-h words, 115 species genders loaded.`
 
 Any other pair of numbers means a file was edited, or was read in the wrong encoding.
 
@@ -136,10 +136,10 @@ Odyssey, any sentence that names a **hallucination** (mute h, and see the defect
 **Pass:** "l'herbe médicinale", "l'humain", "l'hyperfibre", "l'hallucination" — elision as before, exactly as without
 the mod.
 
-**Fail:** "la herbe médicinale", "le humain". One of the 78 prefixes is catching a mute-h word.
+**Fail:** "la herbe médicinale", "le humain". One of the 77 prefixes is catching a mute-h word.
 
 The list was checked against the ten commonest mute-h words and against every French item label the
-game ships that begins with `h`, and none collided. **That check missed `hallucination`** (recorded in
+game ships that begins with `h`, and none collided. **That check missed `hallucination`** (fixed on 2026-09-28, by dropping the `hall` prefix; recorded in
 `STATUS.md`): it read item labels, not the text of hediffs, thoughts and letters. This scenario is here for
 what that check cannot see: those texts, and a word a DLC or another mod adds.
 
@@ -252,7 +252,7 @@ read on each call, so all five switches behave this way.
 
 3. Restart and look again.
 
-**Pass:** now "d'hache de brèche", and the verbose line reads 77 rather than 78. Put the word back.
+**Pass:** now "d'hache de brèche", and the verbose line reads 76 rather than 77. Put the word back.
 
 This pair is what the settings screen promises in so many words: *edit without recompiling; restart
 the game to reload*.
@@ -401,7 +401,7 @@ MAX_PATH: mirror an empty folder over the target with robocopy first, then delet
 - **That every one of the 115 genders is the right one.** The scenarios above check the machinery
   on perhaps a dozen species. The other hundred are a reading of the official translation, and
   only a French speaker looking at generated text over a long game will find a wrong one.
-- **That the 78 prefixes are complete.** Scenario 5 catches over-matching, which is the dangerous
+- **That the 77 prefixes are complete.** Scenario 5 catches over-matching, which is the dangerous
   direction. Under-matching — a missing aspirated word — shows up as vanilla behaviour and looks
   like nothing at all.
 - **That a future version still resolves.** Scenario 1 is the whole of that check, and it has to be

@@ -11,18 +11,17 @@ part of a gate unless `STATUS.md` says so. Each line says whether it was verifie
   assembly name `FrenchGrammarPlus`; nothing requires renaming them. The Steam item still carries the old id
   and name until the next upload, and the settings file the game writes is named after the folder, so it starts
   again under the new name.
-- **The ModIcon speech bubble reads "plus".** The name no longer says it. The icon is the owner's alone
-  to generate or to keep; it was not touched.
+- **Decided on 2026-09-28: the ModIcon stays.** Its speech bubble reads "plus" and the mod is called Renew; the owner
+  answered that the "Plus" suits her. Nothing to do.
 - **Choose the mod that colours a label**, for the pass that plays scenario 9 (`TESTING.md`, "Passes").
-- **The `hall` prefix catches `hallucination`.** A defect, found on 2026-09-28 and not fixed; see `STATUS.md`.
-  Through the offline harness, around the real vanilla rules, `de hallucination`, `de hallucinogene` and `de hallux`
-  come out unchanged and the definite article of `hallucination` becomes `la hallucination`, where vanilla is right
-  (mute h). `hall`, `halle` and `hallebarde` are aspirated, and the list matches by prefix. Two ways out: drop `hall`
-  (the loanword is rare in the French text: a handful of occurrences, against dozens of `hallucination`), which also
-  makes `halloumi` need its own line, since `hall` is what catches it today; or let the lexicon take an exception
-  such as a leading `!` on a line, which is a code change. Either way add `hallucination` to the mute-h words of
-  the negative test, which is why it stayed green. Recommendation: drop `hall` now, do the exceptions only if a
-  second case turns up.
+- **Done on 2026-09-28, at the owner's "case by case": the `hall` prefix is dropped.** It caught `hallucination(s)`,
+  `hallucinogene` and `hallux`, which take a mute h (the mod wrote "la hallucination" where vanilla was right).
+  The list matches by prefix with no exception, so `hall` could not tell them from the aspirated `hall`, and the
+  Académie française marks `hall` aspirated. `halle` stays and covers `halle` and `hallebarde`. The loanword `hall`
+  itself is no longer corrected: it occurs a handful of times in the game's French text. **Add an aspirated word of
+  that family one by one, only when a real sentence needs it** (`hallali`, `hallier`, `hallage` are aspirated too, and
+  were not added for want of a text that uses them). `halloumi` stays unconfirmed. Both negative tests of the suite
+  now know `hallucination`, `hallucinogene` and `hallux`, and were seen to fail with the prefix put back.
 
 ## Asked by another session
 
@@ -30,7 +29,7 @@ From the Flavor Text Extended - Français session, 2026-09-28, on the owner's re
 
 - **Done on 2026-09-28: `hachis` and `harissa` added** to `Mod/Data/aspirated-h.txt`, on the owner's decision
   relayed by that session. Both are confirmed aspirated by the Académie française (9th edition, entries
-  "hachis" and "harissa": "h initial est aspiré"). The list is 78 entries. **Not added**, and that session was
+  "hachis" and "harissa": "h initial est aspiré"). The list was 78 entries then, 77 after `hall` went. **Not added**, and that session was
   told: `houmous` and `hummus` (Wiktionnaire gives "h aspiré ou h muet", Larousse marks nothing, so usage is
   shared); `hot-dog` (only the Wiktionnaire says aspirated; Larousse does not mark it and no Académie entry
   was found); `halloumi` (no source found; it is caught today only by the `hall` prefix, so it needs its own

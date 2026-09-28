@@ -18,13 +18,17 @@ First version. RimWorld 1.6, Harmony required. **Not yet tested in game.**
 - Settings serialization, language-isolation, logging and shortcut regression tests.
 - An updated Workshop overlay with suffix hierarchy, unofficial tag and version badge.
 - Two more aspirated-h words, `hachis` and `harissa`, both confirmed by the Académie française; the list
-  has 78 entries. `houmous`, `hummus`, `hot-dog` and `halloumi` were left out for want of a confirming
+  has 77 entries once `hall` is dropped (see Fixed). `houmous`, `hummus`, `hot-dog` and `halloumi` were left out for want of a confirming
   source.
 
 ### Fixed
 
 - Restricted the global species-rule patch to the active French language worker.
 - Added the final source-code link to the distributed About description.
+- Dropped the `hall` prefix from the aspirated-h list. Matching is by prefix, so it also caught `hallucination`,
+  `hallucinogene` and `hallux`, which take a mute h: the mod wrote "la hallucination" where vanilla "l'hallucination"
+  was right. The aspirated `hall` itself is no longer corrected; words of that family are added one by one when
+  a text needs them. This was in the list of the 0.1.0 item.
 
 ### Changed
 

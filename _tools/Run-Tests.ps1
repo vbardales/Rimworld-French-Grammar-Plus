@@ -271,7 +271,8 @@ It 'a mute h still elides, exactly as without the mod' {
     Reset-Settings
     # The dangerous direction: over-matching would break text the game already gets right.
     $words = @('herbe', 'homme', 'heure', 'histoire', 'h\u00F4pital', 'hiver', 'huile',
-               'honneur', 'h\u00E9ro\u00EFne', 'humain', 'hyperfibre', 'hydrog\u00E8ne')
+               'honneur', 'h\u00E9ro\u00EFne', 'humain', 'hyperfibre', 'hydrog\u00E8ne',
+               'hallucination', 'hallucinations', 'hallucinog\u00E8ne', 'hallux')
     foreach ($w in $words) {
         foreach ($frame in @('de {0}', 'le {0}', 'la {0}')) {
             $in = Fr ($frame -f $w)
@@ -515,7 +516,8 @@ It 'no aspirated prefix catches a word with a mute h' {
     # The one mistake that would break text the game already gets right, everywhere, in silence.
     $mute = @('homme', 'heure', 'histoire', 'hopital', 'herbe', 'hiver', 'huile', 'honneur',
               'heroine', 'hebergement', 'humain', 'hyperfibre', 'hydrogene', 'hectare',
-              'heritage', 'hesitation', 'horaire', 'hotel', 'huitre', 'hymne')
+              'heritage', 'hesitation', 'horaire', 'hotel', 'huitre', 'hymne',
+              'hallucination', 'hallucinogene', 'hallux')
     foreach ($w in $mute) {
         foreach ($p in $aspiratedLines) {
             if ($w.StartsWith($p, [StringComparison]::Ordinal)) {

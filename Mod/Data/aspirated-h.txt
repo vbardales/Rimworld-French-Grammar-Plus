@@ -84,7 +84,9 @@ hyène
 
 # English and other loanwords that keep the aspirated behaviour in French.
 hack
-hall
+# 'hall' is deliberately absent. Matching is by prefix, so it would also catch hallucination,
+# hallucinogene and hallux, which take a mute h. Aspirated words of that family are listed one by
+# one, only when a real text needs them: 'halle' already covers halle and hallebarde.
 hamburger
 hamster
 hobby

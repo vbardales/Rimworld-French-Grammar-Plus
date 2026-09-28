@@ -19,18 +19,6 @@ remaining:
   - feature: no Pickle suite. Blocks `done`. AUDIT.md asks for the Gherkin tests to be written, with
     their scope justified; none exists (`Tests/Pickle/` is absent). `TESTING.md` now holds the pass
     plan and a coverage map that a suite would start from.
-  - defect: the aspirated-h prefix `hall` also catches `hallucination(s)`, `hallucinogene` and `hallux`,
-    which take a mute h. With the mod, "de hallucination" stays as it is and the definite article
-    becomes "la hallucination", where vanilla writes "d'hallucination" and "l'hallucination". Found on
-    2026-09-28 by running those strings through the offline harness around the real vanilla rules; the
-    French translation files of Anomaly and Odyssey contain the word dozens of times (an upper bound: some are in the English comments beside the French lines). Present since 0.1.0 and
-    not fixed: `hall`, `halle` and `hallebarde` are aspirated and the list matches by prefix, with no
-    way to write an exception. Choosing between dropping `hall` and adding exceptions to the lexicon is the
-    owner's (`BACKLOG.md`). The negative test stayed green because its list of mute-h words lacked this one.
-  - defect: the ModIcon speech bubble reads "plus", and the name is no longer "Plus". At 32 px the
-    bubble, the book's lettering and the flag do not read (the head, the book and the pen do). The
-    owner approved the icon's style on 2026-09-13; that approval predates the rename. Not touched:
-    only the owner generates or replaces an icon. Her call: keep it or redo it.
   - unverified: never seen running. The fourteen scenarios of TESTING.md, none played; nothing has been
     run in a game, and no Player.log has been read.
   - unverified: RIMMSQOL reveal and hide of the `FGP_Settings` shortcut; no customization integration
@@ -84,11 +72,12 @@ Each verdict is what was checked today, not what an earlier sheet said.
    `FrenchGrammarRenew`: all four now follow the name, the repository and the folder having been renamed on 2026-09-28.
    **New today: the origin's repository was looked at** (below) and the reason for not starting from it is in
    `ATTRIBUTION.md`.
-2. **-> ModIcon generated: validated by the owner's recorded approval, with one open question.** Build
+2. **-> ModIcon generated: validated by the owner's decisions.** Build
    clean, the DLL current, `ModIcon.png` a 128 x 128 PNG of 26,932 bytes. Read at 32 px in a scratch copy
    (the file was not touched): the head, the book and the pen read; the bubble text, the book lettering and
-   the flag do not. The owner approved that on 2026-09-13. **The bubble says "plus" and the mod is now
-   "Renew"**: raised, not decided (`remaining`). This audit generated, changed and asked nobody to generate anything.
+   the flag do not. The owner approved that on 2026-09-13, and on 2026-09-28, asked about the bubble that
+   says "plus" now that the mod is called Renew, she answered that the "Plus" suits her: the icon stays as it is.
+   This audit generated, changed and asked nobody to generate anything.
 3. **-> Preview generated: validated.** `Mod/About/Preview.png` is 896 x 504, 452,100 bytes (under 1 MB),
    opened and looked at: high oblique view, tiled floor, one lamp pool, a figure seen from behind, no face.
 4. **-> preOptions: validated.** Accent (blue) and secondary ink (amber) are distinct; `Renew` is the suffix at
@@ -179,10 +168,13 @@ captures opened; both languages; logs read. Keep only the evidence that still pr
 
 ## Reservations, not blockers
 
-- The icon bubble and the repository and folder names above wait on the owner.
-- Adding kitchen words to the aspirated-h list, asked by the Flavor Text Extended - Français session, and the
-  `Pluralize` finding, are in `BACKLOG.md`. The latter was verified: the game's French worker returns
-  `recettes` for a count of 1.
+- **The `hall` prefix** was dropped on 2026-09-28, at the owner's "case by case": it caught `hallucination(s)`,
+  `hallucinogene` and `hallux`, which take a mute h, so the mod wrote "la hallucination" where vanilla was right.
+  The list has 77 entries, and both negative tests now know those words and were seen to fail with the prefix
+  back. The loanword `hall` itself, aspirated, is no longer corrected: a handful of occurrences in the game's
+  French text, to add back only when a real sentence needs it (`BACKLOG.md`).
+- Two aspirated-h words, `hachis` and `harissa`, were added the same day, and the `Pluralize` finding is in
+  `BACKLOG.md`. The latter was verified: the game's French worker returns `recettes` for a count of 1.
 
 ## Pointers
 

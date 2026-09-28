@@ -163,7 +163,9 @@ No tag and no GitHub release were made for it.
 ## Next transitions
 
 **`done` -> `tested`, the work now:** play the four passes of `TESTING.md` through the dispatcher, one request each, starting
-with the French minimal pass, and fix what the first run shows: the steps were written against the game's API and
+with the French minimal pass, and fix what the first run shows. **Filed on 2026-09-28 at 14:00: request
+`20260928-140036-944-e88b`, pass 1 French, tree `5064be6`, evidence to `Tests/Pickle/Evidence/2026-09-28-pass1-french`. The machine
+was held and 55 requests were waiting; nothing has been played.** The passes 2, 3 and 4 wait for what pass 1 shows: the steps were written against the game's API and
 compiled, never run. Then the conditions below.
 
 **`done` -> `tested`, as `TESTING.md` now states:** no scenario left `@wip`; every conditional scenario has

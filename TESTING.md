@@ -130,16 +130,18 @@ A word list that over-matches is worse than no word list: it would break text th
 getting right, everywhere, silently. This is the negative test.
 
 1. Look at **medicine** (`herbe médicinale`), a **human** (`humain`), **hyperweave**
-   (`hyperfibre`), and any colonist backstory mentioning `histoire`, `heure` or `homme`.
+   (`hyperfibre`), any colonist backstory mentioning `histoire`, `heure` or `homme`, and, with Anomaly or
+Odyssey, any sentence that names a **hallucination** (mute h, and see the defect recorded in `STATUS.md`).
 
-**Pass:** "l'herbe médicinale", "l'humain", "l'hyperfibre" — elision as before, exactly as without
+**Pass:** "l'herbe médicinale", "l'humain", "l'hyperfibre", "l'hallucination" — elision as before, exactly as without
 the mod.
 
 **Fail:** "la herbe médicinale", "le humain". One of the 76 prefixes is catching a mute-h word.
 
 The list was checked against the ten commonest mute-h words and against every French item label the
-game ships that begins with `h`, and none collide. This scenario is here because that check cannot
-see a word a DLC or another mod adds.
+game ships that begins with `h`, and none collided. **That check missed `hallucination`** (recorded in
+`STATUS.md`): it read item labels, not the text of hediffs, thoughts and letters. This scenario is here for
+what that check cannot see: those texts, and a word a DLC or another mod adds.
 
 ## 6. A species noun keeps its own gender
 

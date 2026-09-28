@@ -14,6 +14,15 @@ part of a gate unless `STATUS.md` says so. Each line says whether it was verifie
 - **The ModIcon speech bubble reads "plus".** The name no longer says it. The icon is the owner's alone
   to generate or to keep; it was not touched.
 - **Choose the mod that colours a label**, for the pass that plays scenario 9 (`TESTING.md`, "Passes").
+- **The `hall` prefix catches `hallucination`.** A defect, found on 2026-09-28 and not fixed; see `STATUS.md`.
+  Through the offline harness, around the real vanilla rules, `de hallucination`, `de hallucinogene` and `de hallux`
+  come out unchanged and the definite article of `hallucination` becomes `la hallucination`, where vanilla is right
+  (mute h). `hall`, `halle` and `hallebarde` are aspirated, and the list matches by prefix. Two ways out: drop `hall`
+  (the loanword is rare in the French text: a handful of occurrences, against dozens of `hallucination`), which also
+  makes `halloumi` need its own line, since `hall` is what catches it today; or let the lexicon take an exception
+  such as a leading `!` on a line, which is a code change. Either way add `hallucination` to the mute-h words of
+  the negative test, which is why it stayed green. Recommendation: drop `hall` now, do the exceptions only if a
+  second case turns up.
 
 ## Asked by another session
 

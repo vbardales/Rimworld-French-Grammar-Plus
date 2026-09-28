@@ -19,6 +19,14 @@ remaining:
   - feature: no Pickle suite. Blocks `done`. AUDIT.md asks for the Gherkin tests to be written, with
     their scope justified; none exists (`Tests/Pickle/` is absent). `TESTING.md` now holds the pass
     plan and a coverage map that a suite would start from.
+  - defect: the aspirated-h prefix `hall` also catches `hallucination(s)`, `hallucinogene` and `hallux`,
+    which take a mute h. With the mod, "de hallucination" stays as it is and the definite article
+    becomes "la hallucination", where vanilla writes "d'hallucination" and "l'hallucination". Found on
+    2026-09-28 by running those strings through the offline harness around the real vanilla rules; the
+    French translation files of Anomaly and Odyssey contain the word dozens of times (an upper bound: some are in the English comments beside the French lines). Present since 0.1.0 and
+    not fixed: `hall`, `halle` and `hallebarde` are aspirated and the list matches by prefix, with no
+    way to write an exception. Choosing between dropping `hall` and adding exceptions to the lexicon is the
+    owner's (`BACKLOG.md`). The negative test stayed green because its list of mute-h words lacked this one.
   - defect: the ModIcon speech bubble reads "plus", and the name is no longer "Plus". At 32 px the
     bubble, the book's lettering and the flag do not read (the head, the book and the pen do). The
     owner approved the icon's style on 2026-09-13; that approval predates the rename. Not touched:

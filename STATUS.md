@@ -11,6 +11,8 @@ detached:     yes
 stage:        done
 licence:      silent
 licence_at:   b606's repository and Workshop item carry no licence (checked again on 2026-09-28), and the source has declared only RimWorld 1.0 to 1.2 since its last update on 2020-11-30. No file, no line and no word list of his is copied. One idea is his and is credited in ATTRIBUTION.md: the zero-width guard that keeps the vanilla elision rules off an aspirated word. This mod's own LICENSE is a bare MIT.
+upstream_mod_remotes:
+  - https://github.com/b606/RimWorld-LanguageWorker_French
 dependencies: declared
 showcase:     complete
 tested_on:
@@ -191,4 +193,6 @@ captures opened; both languages; logs read. Keep only the evidence that still pr
 
 `stage`: `port`, `showcase`, `preTest`, `done`, `tested`, `published`, matching the AUDIT.md states of the
 same names. `licence`: `open`, `silent`, `alive`, `forbidden`, `original`. `remaining`: `feature` (missing),
-`defect` (a known fault), `unverified` (could not be checked).
+`defect` (a known fault), `unverified` (could not be checked). `upstream_mod_remotes`: the git repositories of
+the mods this one is a French-grammar port or fork of, one list entry each; `N/A` if none is found. Distinct
+from `repo` (this mod's own repository) and from `origin` (this checkout's git remote).

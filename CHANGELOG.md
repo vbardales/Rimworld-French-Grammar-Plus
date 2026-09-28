@@ -17,6 +17,9 @@ First version. RimWorld 1.6, Harmony required. **Not yet tested in game.**
 - A translated settings title and an explanation of scope and application timing.
 - Settings serialization, language-isolation, logging and shortcut regression tests.
 - An updated Workshop overlay with suffix hierarchy, unofficial tag and version badge.
+- Two more aspirated-h words, `hachis` and `harissa`, both confirmed by the Académie française; the list
+  has 78 entries. `houmous`, `hummus`, `hot-dog` and `halloumi` were left out for want of a confirming
+  source.
 
 ### Fixed
 

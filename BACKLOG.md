@@ -28,12 +28,14 @@ part of a gate unless `STATUS.md` says so. Each line says whether it was verifie
 
 From the Flavor Text Extended - Français session, 2026-09-28, on the owner's request. Heard, not done.
 
-- Add kitchen words with an aspirated h to `Mod/Data/aspirated-h.txt`, after checking each against
-  Larousse or the Académie, not against that session: `hachis`, `halloumi`, `hot-dog`, `houmous` or
-  `hummus`, `harissa`, and any other the list lacks. Four of their words (`haricot`, `houblon`, `husky`,
-  `héron`) are already listed. Changing the list changes the count quoted in `TESTING.md` (76) and in
-  the tests.
-- Confirm that a sentence built by `CompFlavor.CompileFlavorLabels` and `CompileFlavorDescriptions`,
+- **Done on 2026-09-28: `hachis` and `harissa` added** to `Mod/Data/aspirated-h.txt`, on the owner's decision
+  relayed by that session. Both are confirmed aspirated by the Académie française (9th edition, entries
+  "hachis" and "harissa": "h initial est aspiré"). The list is 78 entries. **Not added**, and that session was
+  told: `houmous` and `hummus` (Wiktionnaire gives "h aspiré ou h muet", Larousse marks nothing, so usage is
+  shared); `hot-dog` (only the Wiktionnaire says aspirated; Larousse does not mark it and no Académie entry
+  was found); `halloumi` (no source found; it is caught today only by the `hall` prefix, so it needs its own
+  exact entry once confirmed, and before `hall` goes). Four of their words (`haricot`, `houblon`, `husky`,
+  `héron`) were already listed.- Confirm that a sentence built by `CompFlavor.CompileFlavorLabels` and `CompileFlavorDescriptions`,
   which goes through `worker.PostProcessed(text)`, is corrected by the mod. Offline the mod's rules
   already run around the real `PostProcessed`, so "un plat de husky", "des haricots" and "de houblon"
   can be tried through that harness; the patch installation itself is scenario 1.

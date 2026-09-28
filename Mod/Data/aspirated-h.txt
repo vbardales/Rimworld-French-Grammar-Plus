@@ -13,6 +13,7 @@
 
 # Core French
 hache
+hachis
 haie
 haillon
 haine
@@ -35,6 +36,7 @@ hargne
 haricot
 harnais
 harpe
+harissa
 harpon
 hasard
 hase

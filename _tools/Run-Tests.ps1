@@ -251,6 +251,8 @@ It 'the aspirated h keeps its article, where vanilla elides it' {
         @('la hache',        "l'hache",        'la hache'),
         @('de houblon',      "d'houblon",      'de houblon'),
         @('de husky',        "d'husky",        'de husky'),
+        @('de hachis',       "d'hachis",       'de hachis'),
+        @('de harissa',      "d'harissa",      'de harissa'),
         @('de \u0068autes herbes', "d'hautes herbes", 'de hautes herbes')
     )
     foreach ($c in $cases) {

@@ -99,3 +99,7 @@ No game session, no Pickle request, no publication. The section above, of 2026-0
 
 It starts no game, so it says nothing of Harmony installing the three patches, of any text on screen, of the
 settings routes, of RIMMSQOL or of a restart. Those remain the fourteen scenarios of `TESTING.md`, none played.
+
+## Addendum, 2026-09-28: two words added to the aspirated-h list
+
+`hachis` and `harissa` were added to `Mod/Data/aspirated-h.txt` (78 entries), both confirmed aspirated by the Académie française (9th edition). The DLL is unchanged. `_tools/Run-Tests.ps1`: 33 of 33; the shield test gained a case for each word and was seen to fail on a scratch copy without `hachis`. `Tests/artifact-sha256.json` refreshed for the data file and the test script.

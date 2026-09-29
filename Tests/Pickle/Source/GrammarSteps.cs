@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using FrenchGrammarPlus;
 using HarmonyLib;
 using RimWorld;
@@ -129,7 +130,9 @@ namespace FrenchGrammarRenew.PickleSteps
                     "RulesForPawn gave no ANIMAL_definite rule; it gave: "
                     + string.Join(", ", rules.Select(r => r.keyword).Distinct().ToArray()));
 
-                var text = definite.Generate();
+                // The game wraps the species label in a rich-text colour tag; only strip a leading one, so a
+                // wrongly-placed article inside the coloured span still fails the check.
+                var text = Regex.Replace(definite.Generate(), @"^<color=[^>]*>", string.Empty);
                 ctx.Assert(text.StartsWith(article + " ") || text.StartsWith(article + "'"),
                     $"a {gender} {kindDefName} was introduced as '{Driver.Show(text)}' in {Driver.Language(ctx)}; "
                     + $"expected it to start with the article '{article}'");

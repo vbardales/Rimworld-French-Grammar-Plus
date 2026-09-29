@@ -81,19 +81,25 @@ Each verdict is what was checked today, not what an earlier sheet said.
    the flag do not. The owner approved that on 2026-09-13, and on 2026-09-28, asked about the bubble that
    says "plus" now that the mod is called Renew, she answered that the "Plus" suits her: the icon stays as it is.
    This audit generated, changed and asked nobody to generate anything.
-3. **-> Preview generated: validated.** `Mod/About/Preview.png` is 896 x 504, 484,328 bytes (under 1 MB),
+3. **-> Preview generated: validated.** `Mod/About/Preview.png` is 896 x 504, 490,927 bytes (under 1 MB),
    opened and looked at: high oblique view, tiled floor, one lamp pool, a figure seen from behind, no face.
-   Updated 2026-09-29 for the owner's new convention: the cut-out `ModIcon.png` sits in the bottom-left
-   corner of `Art/Preview.png`, rotated +15° (left corner = +15°, right corner = -15°; the bottom-left was
-   chosen as the least-filled corner, both top corners already carrying the text block and the version
-   badge). Cut out with `ffmpeg colorkey=0x050100:0.15:0.08` on the delivered icon's near-black background;
-   no character colour was eaten. Two corrections after owner review: first pass (110 px, inset,
-   unsaturated) was too small, too dull, not flush; second pass (200 px, `saturation=1.35`) was still too
-   pale and too small. Settled at 300 px, `eq=saturation=1.8:contrast=1.15:brightness=0.02`, the icon's own
-   bounding box flush against the left and bottom frame edges (`x=0, y=main_h-overlay_h`, before the
-   rotation crop adds its own transparent margin). No overlap with the text block. The pre-icon source is kept at
-   `Art/Preview-source-no-icon.png`. Rendered again through `_tools/Render-Preview.cjs`; all four text
-   regions stay above 4.5:1 (7.24 worst), badge 8.72. `Art/Screenshots/0.png` is a new file, a plain copy of
+   Updated 2026-09-29 for the owner's new convention: a cut-out `ModIcon.png` sits in the bottom-left
+   corner, rotated +15° (left corner = +15°, right corner = -15°; the bottom-left was chosen as the
+   least-filled corner, both top corners already carrying the text block and the version badge). Three
+   corrections after owner review, the first two baking the icon into `Art/Preview.png` with ffmpeg: 110 px
+   inset unsaturated (too small, too dull, not flush), then 300 px `saturation=1.8` flush to the ffmpeg
+   overlay's bounding box (still read as pale and not touching any edge — **the real causes**: the veil,
+   `radial-gradient(ellipse 850px 680px at top left, …)`, still carries about a third of its opacity at the
+   bottom-left corner and was baked on top of the icon in the final render; and `ow=rotw()/oh=roth()`
+   keeps the rotated frame's own padding, so the flush overlay was flush to that padding, not to the
+   mascot's own pixels). Moved to `Art/preview.template.html` instead: `Art/ModIcon-cutout.png` (a tight
+   crop of the colour-keyed cutout, no transparent margin) as an `<img class="corner-icon">`, `position:
+   absolute; left:0; bottom:0`, `transform-origin: bottom left`, painted **after** `.veil` in the DOM so it
+   is never darkened by it, `filter: saturate(1.5) drop-shadow(...)`. 220 px wide, clearing the text block
+   (bottom edge at y≈292) by a margin. `Art/Preview.png` itself is back to the plain illustration (renamed
+   copy at `Art/Preview-source-no-icon.png` kept as the pre-icon reference; the two are now identical
+   again). Rendered through `_tools/Render-Preview.cjs`; all four text
+   regions stay above 4.5:1 (7.21 worst), badge 8.72. `Art/Screenshots/0.png` is a new file, a plain copy of
    this rendered `Mod/About/Preview.png`, per the owner's convention that the Workshop screenshot gallery's
    first image (index 0) is that copy; no further screenshots are staged yet.
 4. **-> preOptions: validated.** Accent (blue) and secondary ink (amber) are distinct; `Renew` is the suffix at
@@ -152,7 +158,7 @@ Each verdict is what was checked today, not what an earlier sheet said.
 | `dotnet build` of the renamed sources | delivered DLL SHA-256 `32876E61...`, the new id present in it and the old one absent |
 | `Check-DefInjected`, `Check-XmlFields`, `Check-DefRefs`, `Check-TypeRefs`, `Check-ConfigErrors` | exit 0 each, before and after the rename |
 | `Tests/artifact-sha256.json` against the disk | two entries stale, refreshed |
-| Images | Preview 896 x 504, 484,328 B, contrast minima 14.14 / 8.83 / 7.24 / 10.76 and badge 8.72, thumbnail read at 268 px, now carries the cut-out ModIcon flush bottom-left at +15°, 300 px, saturation 1.8, after two owner-rejected passes; ModIcon 128 x 128, 26,932 B, read at 32 px |
+| Images | Preview 896 x 504, 490,927 B, contrast minima 14.14 / 8.83 / 7.21 / 10.67 and badge 8.72, thumbnail read at 268 px, now carries the cut-out ModIcon flush bottom-left at +15° as an HTML layer above the veil (see #3), after three owner-rejected passes; ModIcon 128 x 128, 26,932 B, read at 32 px |
 | Explorer folder icons | `desktop.ini` at the root and in `Mod/` point at `Art/ModIcon.ico` and `Art/Preview.ico`, which exist; attributes as required. `Art/Preview.ico` still shows the old suffix (local only) |
 | Game | **not started, not touched.** No RimWorld was launched, no Pickle request filed |
 

@@ -1,7 +1,7 @@
 ---
 localization: complete
 translation_en: complete
-translation_fr: complete
+translation_fr: unchecked
 settings_audit: complete
 mod:          French Grammar Renew (unofficial)
 packageId:    nelim.frenchgrammar

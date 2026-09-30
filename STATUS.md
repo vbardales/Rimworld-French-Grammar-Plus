@@ -18,14 +18,17 @@ showcase:     complete
 tested_on:
 workshop:     3806761557 (0.1.0, creation of the publishIdFile only; Steam keeps every new item private, and switching it to public is the owner's)
 remaining:
-  - unverified: only pass 1 (French minimal) of the Pickle suite has been played: 31 passed, 0 failed, 3 skipped
-    of 34 on tree `5064be6`, the two settings captures opened and read. The 3 skipped are the RIMMSQOL feature,
-    unproven. Passes 2 (English), 3 (restart) and 4 (RIMMSQOL) are filed and not yet played.
-  - unverified: what the suite does not assert, and says so in `Tests/Pickle/README.md`: a sentence the engine
-    builds and displays, a real label that carries a colour tag, and the word lists reloading on restart.
-  - unverified: the scenarios that passes 2, 3 and 4 cover (English isolation, restart, RIMMSQOL).
-  - unverified: RIMMSQOL reveal and hide of the `FGP_Settings` shortcut; no customization integration
-    has been exercised and no version is certified.
+  - unverified: all four planned Pickle passes are now played and green: pass 1 French 31/34 (3 skipped,
+    RIMMSQOL, not loaded by that pass), pass 2b English 12/12 (fixes a step bug found in the first pass 2),
+    pass 3b restart 2/2, pass 4 RIMMSQOL 3/3. 48 of 48 scenarios that ran, passed; `exitReason` read as
+    `passed` on each; all `@review` captures opened. What the suite deliberately does not assert (a
+    sentence the engine builds and displays, a real label that carries a colour tag, whether the font
+    draws a no-break space) is unchanged by this and still `unverified` below; `done -> tested` needs a
+    fresh read of `TESTING.md`, "What `tested` requires", against these results before the stage moves.
+  - unverified: a sentence the engine builds and displays (TESTING.md rows 3, 4, 5, 8: "Not shown"), a real
+    label that carries a colour tag (row 9: "not covered"), and whether the font draws the no-break space
+    of the typography setting (row 10: "none is taken"). None of the four passes produces or reads a
+    generated sentence or a rendered no-break space; these stay manual checks, not automated.
   - unverified: elision across a colour tag (scenario 9) cannot be played with the base game, since no
     vanilla French string carries a tag. It needs a mod that colours a label, and none is chosen.
   - feature: for `prepublished`, not yet started. No `PUBLICATION.md`; the description in `About.xml`
@@ -207,16 +210,24 @@ No tag and no GitHub release were made for it.
 
 ## Next transitions
 
-**`done` -> `tested`, the work now:** play the four passes of `TESTING.md` through the dispatcher, one request each, starting
-with the French minimal pass. **Pass 1 played 2026-09-28 17:10: request `20260928-140036-944-e88b`, tree `5064be6`, 31 passed, 0 failed,
-3 skipped (RIMMSQOL, not loaded by that pass), evidence in `Tests/Pickle/Evidence/2026-09-28-pass1-french`.** Filed after it, same tree:
-pass 2 English `20260928-191312-686-d0fb`, pass 3 restart `20260928-191314-912-05b4`, pass 4 RIMMSQOL `20260928-191315-350-63f2`.
-Then the conditions below.
+**`done` -> `tested`: all four passes are now played, 48 of 48 scenarios green.** Pass 1 French (2026-09-28,
+`20260928-140036-944-e88b`, tree `5064be6`): 31/34, 3 skipped (RIMMSQOL). Pass 2 English's first attempt
+(`20260928-191312-686-d0fb`) failed one scenario on a step bug (a rich-text colour tag the step never
+stripped before comparing, not a mod defect); fixed in `Tests/Pickle/Source/GrammarSteps.cs` and re-filed as
+pass 2b (2026-09-29, `20260929-135332-712-b8e6`, tree `ba50a84`): 12/12. Pass 3 restart's first attempt
+(`20260928-191314-912-05b4`) crashed before any scenario, `SIGSEGV` in the Mono GC, a cross-mod signature
+seen on several other mods that day; re-filed unchanged as pass 3b (2026-09-30, `20260929-135532-799-5bc8`,
+tree `16493a0`): 2/2. Pass 4 RIMMSQOL (2026-09-28, `20260928-191315-350-63f2`, tree `5064be6`): 3/3.
+Evidence for each under `Tests/Pickle/Evidence/`, one line per run in `docs/runs/history.md`.
 
-**`done` -> `tested`, as `TESTING.md` now states:** no scenario left `@wip`; every conditional scenario has
-run (the RIMMSQOL pass, with the report of each read; the colour-label and German passes are not planned, and why is in `TESTING.md`); no manual test
-left to tick, each scenario either automated and green or listed not applicable with its reason; `@review`
-captures opened; both languages; logs read. Keep only the evidence that still proves something.
+**Not yet done: the `done -> tested` transition itself.** The passes above satisfy "every scenario has run
+and passed" and "every conditional scenario has run" (TESTING.md, "What `tested` requires"). What is not yet
+re-checked against that section, item by item, with the transition then written up here the way `done` was:
+"no manual test left to tick" (rows 3/4/5/8/9/10 above still read as genuinely unverified, not merely
+un-run, so this needs a decision — mark them `not_applicable` with a reason, or find a way to check them —
+before the box can be ticked) and "both languages, logs read, a regression pass after any correction" as a
+closing statement, not scattered across passes. `translation_fr` also still needs Virginie's own review
+(see the French-review entry in `remaining`), independent of this gate.
 
 ## Reservations, not blockers
 

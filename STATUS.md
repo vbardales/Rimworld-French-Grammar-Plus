@@ -9,6 +9,7 @@ repo:         Rimworld-French-Grammar-Renew
 visibility:   public
 detached:     yes
 stage:        done
+workflow_stage: done
 licence:      silent
 licence_at:   b606's repository and Workshop item carry no licence (checked again on 2026-09-28), and the source has declared only RimWorld 1.0 to 1.2 since its last update on 2020-11-30. No file, no line and no word list of his is copied. One idea is his and is credited in ATTRIBUTION.md: the zero-width guard that keeps the vanilla elision rules off an aspirated word. This mod's own LICENSE is a bare MIT.
 upstream_mod_remotes:
@@ -18,19 +19,14 @@ showcase:     complete
 tested_on:
 workshop:     3806761557 (0.1.0, creation of the publishIdFile only; Steam keeps every new item private, and switching it to public is the owner's)
 remaining:
-  - unverified: all four planned Pickle passes are now played and green: pass 1 French 31/34 (3 skipped,
-    RIMMSQOL, not loaded by that pass), pass 2b English 12/12 (fixes a step bug found in the first pass 2),
-    pass 3b restart 2/2, pass 4 RIMMSQOL 3/3. 48 of 48 scenarios that ran, passed; `exitReason` read as
-    `passed` on each; all `@review` captures opened. What the suite deliberately does not assert (a
-    sentence the engine builds and displays, a real label that carries a colour tag, whether the font
-    draws a no-break space) is unchanged by this and still `unverified` below; `done -> tested` needs a
-    fresh read of `TESTING.md`, "What `tested` requires", against these results before the stage moves.
-  - unverified: a sentence the engine builds and displays (TESTING.md rows 3, 4, 5, 8: "Not shown"), a real
-    label that carries a colour tag (row 9: "not covered"), and whether the font draws the no-break space
-    of the typography setting (row 10: "none is taken"). None of the four passes produces or reads a
-    generated sentence or a rendered no-break space; these stay manual checks, not automated.
-  - unverified: elision across a colour tag (scenario 9) cannot be played with the base game, since no
-    vanilla French string carries a tag. It needs a mod that colours a label, and none is chosen.
+  - unverified: `done -> tested` is checked item by item on 2026-10-02 (see "Audit, 2026-10-02"). Met: all four
+    Pickle passes played and green (48 of 48, `exitReason: passed` on each, every `@review` capture opened), no
+    `@wip`, every `@requires` has run (RIMMSQOL in pass 4), logs and both languages read. **Not met: "no manual
+    test left to tick".**
+  - unverified: the manual checks of `TESTING.md` ("Manual checks left"): a sentence the engine builds and
+    displays (rows 3, 4, 5, 8), a real label that carries a colour tag (row 9, which needs a mod that colours a
+    label, none chosen) and whether the font draws the no-break space (row 10). Each is to be automated or
+    declared not applicable with its reason; none is declared yet.
   - feature: for `prepublished`, not yet started. No `PUBLICATION.md`; the description in `About.xml`
     lacks the `IF I GO QUIET`, `AI-GENERATED` and `THANKS` sections and the attribution line that
     AUDIT.md orders after the body; no thank-you comment for b606's page (2081845369, absent from the
@@ -38,15 +34,54 @@ remaining:
   - unverified: French review by Virginie (TRANSLATIONS.md, "Systematic French review", 2026-09-30). The
     session's own inventory and gender-switch check pass, but `translation_fr` cannot be `complete` until
     she has read `FRENCH_REVIEW.md`.
+  - feature: pull request to the origin's repository (`b606/RimWorld-LanguageWorker_French`), systematic since
+    PUBLISHING.md's rule of 2026-09-28; in `BACKLOG.md`. Public, so not before the owner's word. The mod cannot
+    be based on his code (licence `silent`).
   - unverified: nothing has been uploaded since the 0.1.0 creation, so the page's description, gallery
     and change notes have never been seen in place.
 session:      local_f7c8f179-b0fc-432a-bd6f-23aa8e0fddd0
-updated:      2026-09-28, audited against AUDIT.md (protocols c5ca0c0 plus local edits); done -> preTest, then preTest -> done once the Pickle suite was written
+updated:      2026-10-02, audited against AUDIT.md (protocols d1fdbe1); `done` holds, `tested` not reached (manual checks)
 ---
 
 # French Grammar Renew (unofficial): status
 
-The session title is `frenchgrammar / done`: the packageId without `nelim.`, then the `stage`.
+The session title is `frenchgrammar / done`: the packageId without `nelim.`, then the `workflow_stage`.
+
+## Audit, 2026-10-02
+
+Revision audited: `67d1c56` (master, equal to `origin/master`), tree clean at the start; this audit's own edits are
+committed with this sheet. Against `AUDIT.md` at `d1fdbe1`. **`done` -> `done`: it holds; `tested` is not reached.**
+The 2026-09-28 verdict below stays as written (the stage did not move, so nothing is marked replaced).
+
+**Replayed for a `done` mod (step 12).** `options -> l10n` against the current `TRANSLATIONS.md`: the plural rule
+(no key of this mod takes a number: no `{0}` in any Keyed text) and the French gender-switch rule (not applicable:
+no text refers to a pawn) hold. `l10n -> preTest`: dependencies unchanged since 09-28 (Harmony the only hard one;
+`Check-TypeRefs` clean today). `preTest -> done`: `_tools/Run-Tests.ps1` **33 of 33 today**, `Check-DefInjected` 2
+keys 0 errors, `Check-XmlFields`, `Check-DefRefs`, `Check-TypeRefs`, `Check-ConfigErrors` clean, the Pickle suite
+written (seven features) and its scope justified. Nothing started a game.
+
+**`done -> tested`, item by item (AUDIT.md step 9 and `TESTING.md`, "What `tested` requires").**
+
+| Criterion | Verdict |
+|---|---|
+| Scenarios run in game and passed; Pickle green; `exitReason` read; `@review` captures opened | validated: 48 of 48 over four passes, `exitReason: passed`, captures opened (one line per run in `docs/runs/history.md`) |
+| Logs read, both languages, options, persistence and the MainButton | validated: passes 1 and 2b (languages), 3b (restart), 4 (RIMMSQOL) |
+| No scenario `@wip` | validated: searched in the seven features, none |
+| Every conditional scenario has run | validated: `@requires` are RIMMSQOL and its steps (pass 4, 3/3), ScreenshotMode and LoadAudit (passes 1, 2b); the 3 skipped scenarios of pass 1 are feature 07, played by pass 4 |
+| **No manual test left to validate** | **not met**: rows 3, 4, 5, 8, 9, 10 are neither automated nor declared not applicable (`TESTING.md`, "Manual checks left"). A decision, not a defect |
+| Regression pass after a correction | the correction (colour-tag step, pass 2) was replayed green as pass 2b; a final regression pass on the last revision comes with `tested` |
+
+**Housekeeping done today.** Evidence kept to the four proofs that still prove something (about 2 MB, listed in
+`TESTING.md`); the crashed pass 3 attempt deleted. No `.dds` and no evidence is tracked in git, none ever was
+(history searched), and `.gitignore` covers `*.dds`, `*.DDS`, `*.ico` and both evidence folders. The gallery copy of the
+Preview moved to `Art/Gallery/0-preview.png` (byte-identical to `Mod/About/Preview.png`, per PUBLISHING.md).
+`FRENCH_REVIEW.md` regenerated with the collection's `scripts/Make-FrenchReview.ps1` (the mod's own copy removed).
+The origin's repository was looked at again (last push 2020-11-30, no licence): a pull request is now a backlog line,
+not started. `docs/PROTOCOLS-READ.md` rewritten with versions, what was read and what was of no use.
+
+**Next transition.** `done -> tested` needs the six manual checks decided (automated, or declared not applicable with
+a reason) and then a last regression pass on the final revision. `translation_fr` is a separate gate: Virginie's own
+reading of `FRENCH_REVIEW.md`.
 
 ## Verdict, 2026-09-28
 
@@ -105,7 +140,7 @@ Each verdict is what was checked today, not what an earlier sheet said.
    (bottom edge at y≈292) by a margin. `Art/Preview.png` itself is back to the plain illustration (renamed
    copy at `Art/Preview-source-no-icon.png` kept as the pre-icon reference; the two are now identical
    again). Rendered through `_tools/Render-Preview.cjs`; all four text
-   regions stay above 4.5:1 (7.21 worst), badge 8.72. `Art/Screenshots/0.png` is a new file, a plain copy of
+   regions stay above 4.5:1 (7.21 worst), badge 8.72. `Art/Gallery/0-preview.png` (first `Art/Screenshots/0.png`, moved on 2026-10-02) is a new file, a plain copy of
    this rendered `Mod/About/Preview.png`, per the owner's convention that the Workshop screenshot gallery's
    first image (index 0) is that copy; no further screenshots are staged yet.
 4. **-> preOptions: validated.** Accent (blue) and secondary ink (amber) are distinct; `Renew` is the suffix at
@@ -183,9 +218,9 @@ label). No text in this mod needs the `{PAWN_gender ? ... : ... : ...}` switch, 
 against that rule. (The mod's *subject* is pawn-referring grammar generated by the game's own engine, which
 this mod corrects through Harmony patches, not through its own Keyed or DefInjected strings.)
 
-**`FRENCH_REVIEW.md`** generated by `_tools/Generate-FrenchReview.ps1` (new script, adapted from FoodCourt's),
-revision `23a392e`. Two tables, one per file, 17 rows total, Original column equal to English throughout: this
-mod has no source in another language. No row flagged `?`.
+**`FRENCH_REVIEW.md`** regenerated on 2026-10-02 by the collection's `scripts/Make-FrenchReview.ps1` (it replaces
+the mod's own `_tools/Generate-FrenchReview.ps1`, removed), from revision `0e072bb`. Two tables, one per file, 17
+rows, Original column equal to English throughout: this mod has no source in another language. No row flagged `?`.
 
 **Systematic French review by Virginie:** not yet done. `translation_fr` stays `partial` until she reads
 `FRENCH_REVIEW.md`; see `remaining`.

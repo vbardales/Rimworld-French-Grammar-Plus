@@ -5,6 +5,15 @@ part of a gate unless `STATUS.md` says so. Each line says whether it was verifie
 
 ## Waiting for the owner
 
+- **Pull request to the origin's repository (PUBLISHING.md, owner's rule of 2026-09-28: systematic as soon as an
+  origin repository exists, and it stays here until done).** Origin: `b606/RimWorld-LanguageWorker_French`, looked at
+  again on 2026-10-02 (last push still 2020-11-30, no licence reported by GitHub). **This mod cannot be based on its
+  code**: the licence is `silent`, so nothing of it is copied (`ATTRIBUTION.md`); the route is a proposal to him, in
+  his own repository, of what this mod adds (the aspirated-h guard, the possessive, the species gender). A fork and
+  a pull request are public, so **neither is made before the owner's word**. Not started.
+- **Decide the manual checks that keep `tested` closed** (`TESTING.md`, "Manual checks left"): rows 3, 4, 5, 8 (a
+  sentence the engine builds), row 9 (a real tagged label, which needs a mod chosen) and row 10 (the no-break space
+  on a capture). Each is automated, or declared not applicable with its reason.
 - **Done on 2026-09-28, at the owner's word: repository and folder renamed to Renew.** The repository is
   `Rimworld-French-Grammar-Renew` (the old address redirects), the folder `FrenchGrammarRenew`, the name
   `French Grammar Renew (unofficial)` and the packageId `nelim.frenchgrammar`. The code keeps its namespace and

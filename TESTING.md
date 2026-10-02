@@ -315,8 +315,13 @@ or an integration not exercised remains unverified, not a passed test.
 
 ## What `tested` requires
 
-Written on 2026-09-28 from `AUDIT.md` (done -> tested). Everything below runs in a game, never by
-reading the code, and none of it has been done yet.
+Written on 2026-09-28 from `AUDIT.md` (done -> tested), checked item by item on 2026-10-02. Everything below
+runs in a game, never by reading the code.
+
+**Standing on 2026-10-02:** scenarios run and passed, yes (48 of 48, `exitReason: passed` read on each, every
+`@review` capture opened); no `@wip` in any feature (searched); every `@requires` has had its pass (RIMMSQOL, pass 4;
+ScreenshotMode and LoadAudit are in passes 1 and 2); logs read; both languages, restart persistence and the MainButton
+done. **Not met: "no manual test is left to tick"** (last bullet, and "Manual checks left" below). `tested` waits on it.
 
 - **Every scenario above has run in game and passed**, through a Pickle suite where a running game is
   the only thing that can show it. A green Pickle run says the path was walked, not that the text on
@@ -335,10 +340,22 @@ reading the code, and none of it has been done yet.
 - Logs read, both languages, settings persistence and the MainButton checked, new colony and existing
   save covered where relevant, and a regression pass after any correction.
 
+## Manual checks left
+
+None is declared not applicable yet; each is either to automate or to declare, with its reason, by the owner's
+decision. Until then they keep `done -> tested` open.
+
+| Rows | What is not shown | Way out |
+|---|---|---|
+| 3, 4, 5, 8 | A sentence the engine builds and displays, passing through the patched worker | Either a step that makes the game build one (a tale, a letter) and reads it back, or declare it the engine's own business: the patch installation is proved in game (feature 01) and the entry points on strings (feature 02) |
+| 9 | Elision across a tag on a real label | Needs a mod that colours a label, none chosen (`BACKLOG.md`); or declare it not applicable, the base game having no tagged French string |
+| 10 | Whether the font draws the no-break space | One `@review` capture of the setting on, read by a person; or declare it a font matter |
+
 ## Passes
 
-The Pickle suite is written (`Tests/Pickle/`, 2026-09-28) and pass 1 (French) has been played: 31 of 34 passed, the 3 skipped are the RIMMSQOL feature. Passes 2 to 4 are filed. It is filed as requests,
-one per pass, and the commands, the maps and what is deliberately left out are in `Tests/Pickle/README.md`.
+The Pickle suite is written (`Tests/Pickle/`, 2026-09-28) and every pass has been played and is green: pass 1 French
+31/34 (the 3 skipped are the RIMMSQOL feature, now excluded by filter), pass 2b English 12/12, pass 3b restart 2/2,
+pass 4 RIMMSQOL 3/3. A pass is filed as a request, one per pass, and the commands, the maps and what is deliberately left out are in `Tests/Pickle/README.md`.
 A skipped scenario is not a passed one: every `@requires` scenario needs its own pass.
 
 | Pass | Mod set | Language | Plays |
@@ -357,7 +374,8 @@ for an incompatibility (none is declared; b606's old mod is not, see `BACKLOG.md
 
 "Offline" means `_tools/Run-Tests.ps1`, which runs the mod's own code around the game's own French rules without
 starting the game. "In game" is what only a running colony can show. "Written as" is the Pickle feature that
-asserts it, none of which has been played.
+asserts it. All four passes have been played and are green (48 of 48); what they deliberately do not show is in
+the "Not shown" cells and in "Manual checks left" above.
 
 | # | Offline today | Only a game can show | Written as |
 |---|---|---|---|
@@ -371,6 +389,7 @@ asserts it, none of which has been played.
 | 12 | English, German and null workers leave the rules alone | The same in a running English game | `03-english-isolation`, pass 2 |
 | 13 | The mod stores nothing in a save: only `ModSettings` uses `Scribe`, no game component | Nothing: how the game loads a save with or without a mod is the game's, not the mod's | **Not applicable**, per "On ne teste pas le jeu" in `AUDIT.md` |
 | 14 | Defaults, 64 combinations round-trip, the shortcut Def and worker contract (5 tests) | Both routes, persistence across a restart, the shortcut through RIMMSQOL, layout in both languages | `04-settings` and its two `@review` captures, `05` and `06`, `07`, and the load audit's language check |
+
 ## What to keep after a test, and what to delete
 
 Rule of the collection's `AGENTS.md`: a report about a superseded build proves nothing about the
@@ -392,6 +411,14 @@ language, an optional-mod pass), and any report of a superseded build once the p
 current one. **Never delete a report that `STATUS.md` still points to**: repoint the field first.
 List what goes and what stays before deleting. A plain recursive delete stalls on capture names past
 MAX_PATH: mirror an empty folder over the target with robocopy first, then delete the empty shell.
+**The proofs this mod keeps, 2026-10-02**, one folder per pass under `Tests/Pickle/Evidence/`, about 2 MB in all:
+`2026-09-28-pass1-french` (French, 31/34), `2026-09-29-pass2b-english` (English, 12/12, the only English proof and the
+one that supersedes the failed pass 2), `2026-09-29-pass3b-restart` (`seq1` write and `seq2` read, 2/2) and
+`2026-09-28-pass4-rimmsqol` (3/3, the only RIMMSQOL proof). Each holds its summary, junit, `messages.ndjson`,
+`Player.log` and its `@review` JPEGs. Deleted on 2026-10-02: the pass 3 attempt that crashed in the Mono GC
+(`2026-09-28-pass3-restart`, only a `Player.log`), its line staying in `docs/runs/history.md`. The next run of a pass
+replaces its folder; a pass is never kept twice. No `.dds` and no evidence is in git (`.gitignore` covers both).
+
 ## What none of this can prove
 
 - **That every one of the 115 genders is the right one.** The scenarios above check the machinery

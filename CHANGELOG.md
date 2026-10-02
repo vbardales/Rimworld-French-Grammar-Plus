@@ -8,7 +8,7 @@ in game.
 
 On release: create the `v1.0.0` tag and the matching GitHub release.
 
-First version. RimWorld 1.6, Harmony required. **Not yet tested in game.**
+First version. RimWorld 1.6, Harmony required. Played in game by a Pickle suite (48 of 48 scenarios green); a few manual checks remain, see `STATUS.md`.
 
 ### Added
 
